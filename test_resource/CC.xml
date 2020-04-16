@@ -1,0 +1,62 @@
+<?xml version="1.0" ?>
+<?xml-stylesheet type="text/xsl" href="https://raw.githubusercontent.com/terryyin/lizard/master/lizard.xsl"?>
+<cppncss>
+	<measure type="Function">
+		<labels>
+			<label>Nr.</label>
+			<label>NCSS</label>
+			<label>CCN</label>
+		</labels>
+		<item name="get_file_names(...) at C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py:11">
+			<value>1</value>
+			<value>10</value>
+			<value>3</value>
+		</item>
+		<item name="get_function_names(...) at C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py:28">
+			<value>2</value>
+			<value>13</value>
+			<value>7</value>
+		</item>
+		<average label="NCSS" value="13.0"/>
+		<average label="CCN" value="5.5"/>
+		<average label="NCSS" value="13.833333333333334"/>
+		<average label="CCN" value="4.833333333333333"/>
+		<average label="NCSS" value="13.833333333333334"/>
+		<average label="CCN" value="4.833333333333333"/>
+	</measure>
+	<measure type="File">
+		<labels>
+			<label>Nr.</label>
+			<label>NCSS</label>
+			<label>CCN</label>
+			<label>Functions</label>
+		</labels>
+		<item name="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py">
+			<value>1</value>
+			<value>137</value>
+			<value>55</value>
+			<value>10</value>
+		</item>
+		<item name="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py">
+			<value>2</value>
+			<value>50</value>
+			<value>3</value>
+			<value>2</value>
+		</item>
+		<item name="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\__init__.py">
+			<value>3</value>
+			<value>1</value>
+			<value>0</value>
+			<value>0</value>
+		</item>
+		<average label="NCSS" value="62.666666666666664"/>
+		<average label="CCN" value="19.333333333333332"/>
+		<average label="Functions" value="4.0"/>
+		<sum label="NCSS" value="188"/>
+		<sum label="CCN" value="58"/>
+		<sum label="Functions" value="12"/>
+		<average label="NCSS" value="13.833333333333334"/>
+		<average label="CCN" value="4.833333333333333"/>
+	</measure>
+</cppncss>
+

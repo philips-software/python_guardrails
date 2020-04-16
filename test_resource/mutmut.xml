@@ -1,0 +1,1436 @@
+<?xml version="1.0" ?>
+<testsuites disabled="0" errors="0" failures="60" tests="237" time="0.0">
+	<testsuite disabled="0" errors="0" failures="60" name="mutmut" skipped="0" tests="237" time="0">
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="6" name="Mutant #1">
+			<system-out>DELTA_BODY = []</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="7" name="Mutant #2">
+			<system-out>UID_LIST = []</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="16" name="Mutant #3">
+			<system-out>    listoffile = os.listdir(dir_path)</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="17" name="Mutant #4">
+			<system-out>    allfiles = list()</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="19" name="Mutant #5">
+			<system-out>        fullpath = os.path.join(dir_path, entry)</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="21" name="Mutant #6">
+			<system-out>            allfiles = allfiles + get_file_names(fullpath)</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="21" name="Mutant #7">
+			<system-out>            allfiles = allfiles + get_file_names(fullpath)</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="33" name="Mutant #8">
+			<system-out>    file_ext = str(os.path.basename(file_names).split('.')[1])</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="33" name="Mutant #9">
+			<system-out>    file_ext = str(os.path.basename(file_names).split('.')[1])</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="33" name="Mutant #10">
+			<system-out>    file_ext = str(os.path.basename(file_names).split('.')[1])</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="34" name="Mutant #11">
+			<system-out>    find = &quot;function&quot; if file_ext.upper() == &quot;CPP&quot; or file_ext.upper() == &quot;C&quot; else &quot;method&quot;</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="34" name="Mutant #12">
+			<system-out>    find = &quot;function&quot; if file_ext.upper() == &quot;CPP&quot; or file_ext.upper() == &quot;C&quot; else &quot;method&quot;</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="34" name="Mutant #13">
+			<system-out>    find = &quot;function&quot; if file_ext.upper() == &quot;CPP&quot; or file_ext.upper() == &quot;C&quot; else &quot;method&quot;</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="34" name="Mutant #14">
+			<system-out>    find = &quot;function&quot; if file_ext.upper() == &quot;CPP&quot; or file_ext.upper() == &quot;C&quot; else &quot;method&quot;</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="34" name="Mutant #15">
+			<system-out>    find = &quot;function&quot; if file_ext.upper() == &quot;CPP&quot; or file_ext.upper() == &quot;C&quot; else &quot;method&quot;</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="34" name="Mutant #16">
+			<system-out>    find = &quot;function&quot; if file_ext.upper() == &quot;CPP&quot; or file_ext.upper() == &quot;C&quot; else &quot;method&quot;</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="34" name="Mutant #17">
+			<system-out>    find = &quot;function&quot; if file_ext.upper() == &quot;CPP&quot; or file_ext.upper() == &quot;C&quot; else &quot;method&quot;</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="34" name="Mutant #18">
+			<system-out>    find = &quot;function&quot; if file_ext.upper() == &quot;CPP&quot; or file_ext.upper() == &quot;C&quot; else &quot;method&quot;</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="35" name="Mutant #19">
+			<system-out>    function_list = []</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="36" name="Mutant #20">
+			<system-out>    line_numbers = []</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="37" name="Mutant #21">
+			<system-out>    cmd = &quot;ctags -x &quot; + file_names + &quot;| grep %s &quot; % find</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="37" name="Mutant #22">
+			<system-out>    cmd = &quot;ctags -x &quot; + file_names + &quot;| grep %s &quot; % find</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="37" name="Mutant #23">
+			<system-out>    cmd = &quot;ctags -x &quot; + file_names + &quot;| grep %s &quot; % find</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="37" name="Mutant #24">
+			<system-out>    cmd = &quot;ctags -x &quot; + file_names + &quot;| grep %s &quot; % find</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="37" name="Mutant #25">
+			<system-out>    cmd = &quot;ctags -x &quot; + file_names + &quot;| grep %s &quot; % find</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="37" name="Mutant #26">
+			<system-out>    cmd = &quot;ctags -x &quot; + file_names + &quot;| grep %s &quot; % find</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="38" name="Mutant #27">
+			<system-out>    proc = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="38" name="Mutant #28">
+			<system-out>    proc = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="39" name="Mutant #29">
+			<system-out>    process = str(proc.stdout.read(), 'utf-8')</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="39" name="Mutant #30">
+			<system-out>    process = str(proc.stdout.read(), 'utf-8')</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="40" name="Mutant #31">
+			<system-out>    process_list = re.findall(r'\w+', process)</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="40" name="Mutant #32">
+			<system-out>    process_list = re.findall(r'\w+', process)</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="41" name="Mutant #33">
+			<system-out>    val = [index for index, value in enumerate(process_list) if value == find]</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="41" name="Mutant #34">
+			<system-out>    val = [index for index, value in enumerate(process_list) if value == find]</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="41" name="Mutant #35">
+			<system-out>    val = [index for index, value in enumerate(process_list) if value == find]</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="42" name="Mutant #36">
+			<system-out>    [function_list.append(process_list[val[i] - 1]) for i in range(len(val))]</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="42" name="Mutant #37">
+			<system-out>    [function_list.append(process_list[val[i] - 1]) for i in range(len(val))]</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="42" name="Mutant #38">
+			<system-out>    [function_list.append(process_list[val[i] - 1]) for i in range(len(val))]</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="43" name="Mutant #39">
+			<system-out>    [line_numbers.append(process_list[val[i] + 1]) for i in range(len(val))]</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="43" name="Mutant #40">
+			<system-out>    [line_numbers.append(process_list[val[i] + 1]) for i in range(len(val))]</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="43" name="Mutant #41">
+			<system-out>    [line_numbers.append(process_list[val[i] + 1]) for i in range(len(val))]</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="53" name="Mutant #42">
+			<system-out>    if annot is None:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="54" name="Mutant #43">
+			<system-out>        code = get_func_body(filename, line_num)</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="58" name="Mutant #44">
+			<system-out>            file_content = file_data.readlines()</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="59" name="Mutant #45">
+			<system-out>            iterator = int(line_num) - 2</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="59" name="Mutant #46">
+			<system-out>            iterator = int(line_num) - 2</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="59" name="Mutant #47">
+			<system-out>            iterator = int(line_num) - 2</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="61" name="Mutant #48">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
+@@ -59,7 +59,7 @@
+             file_content = file_data.readlines()
+             iterator = int(line_num) - 2
+             # print(iterator)
+-            for _ in range(int(line_num) - 2):
++            for _ in range(int(line_num) + 2):
+                 data = str(file_content[iterator]).strip().upper()
+                 iterator = iterator - 1
+                 if annot.upper() in data.upper():  # Change to start with
+</failure>
+			<system-out>            for _ in range(int(line_num) - 2):</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="61" name="Mutant #49">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
+@@ -59,7 +59,7 @@
+             file_content = file_data.readlines()
+             iterator = int(line_num) - 2
+             # print(iterator)
+-            for _ in range(int(line_num) - 2):
++            for _ in range(int(line_num) - 3):
+                 data = str(file_content[iterator]).strip().upper()
+                 iterator = iterator - 1
+                 if annot.upper() in data.upper():  # Change to start with
+</failure>
+			<system-out>            for _ in range(int(line_num) - 2):</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="62" name="Mutant #50">
+			<system-out>                data = str(file_content[iterator]).strip().upper()</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="63" name="Mutant #51">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
+@@ -61,7 +61,7 @@
+             # print(iterator)
+             for _ in range(int(line_num) - 2):
+                 data = str(file_content[iterator]).strip().upper()
+-                iterator = iterator - 1
++                iterator = iterator + 1
+                 if annot.upper() in data.upper():  # Change to start with
+                     code = get_func_body(filename, line_num)
+                     return code
+</failure>
+			<system-out>                iterator = iterator - 1</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="63" name="Mutant #52">
+			<system-out>                iterator = iterator - 1</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="63" name="Mutant #53">
+			<system-out>                iterator = iterator - 1</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="64" name="Mutant #54">
+			<system-out>                if annot.upper() in data.upper():  # Change to start with</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="65" name="Mutant #55">
+			<system-out>                    code = get_func_body(filename, line_num)</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="67" name="Mutant #56">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
+@@ -65,7 +65,7 @@
+                 if annot.upper() in data.upper():  # Change to start with
+                     code = get_func_body(filename, line_num)
+                     return code
+-                elif data[:1] is not &quot;@&quot; and &quot;}&quot; in data or &quot;{&quot; in data:
++                elif data[:2] is not &quot;@&quot; and &quot;}&quot; in data or &quot;{&quot; in data:
+                     return None
+ 
+ 
+</failure>
+			<system-out>                elif data[:1] is not &quot;@&quot; and &quot;}&quot; in data or &quot;{&quot; in data:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="67" name="Mutant #57">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
+@@ -65,7 +65,7 @@
+                 if annot.upper() in data.upper():  # Change to start with
+                     code = get_func_body(filename, line_num)
+                     return code
+-                elif data[:1] is not &quot;@&quot; and &quot;}&quot; in data or &quot;{&quot; in data:
++                elif data[:1] is  &quot;@&quot; and &quot;}&quot; in data or &quot;{&quot; in data:
+                     return None
+ 
+ 
+</failure>
+			<system-out>                elif data[:1] is not &quot;@&quot; and &quot;}&quot; in data or &quot;{&quot; in data:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="67" name="Mutant #58">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
+@@ -65,7 +65,7 @@
+                 if annot.upper() in data.upper():  # Change to start with
+                     code = get_func_body(filename, line_num)
+                     return code
+-                elif data[:1] is not &quot;@&quot; and &quot;}&quot; in data or &quot;{&quot; in data:
++                elif data[:1] is not &quot;XX@XX&quot; and &quot;}&quot; in data or &quot;{&quot; in data:
+                     return None
+ 
+ 
+</failure>
+			<system-out>                elif data[:1] is not &quot;@&quot; and &quot;}&quot; in data or &quot;{&quot; in data:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="67" name="Mutant #59">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
+@@ -65,7 +65,7 @@
+                 if annot.upper() in data.upper():  # Change to start with
+                     code = get_func_body(filename, line_num)
+                     return code
+-                elif data[:1] is not &quot;@&quot; and &quot;}&quot; in data or &quot;{&quot; in data:
++                elif data[:1] is not &quot;@&quot; and &quot;XX}XX&quot; in data or &quot;{&quot; in data:
+                     return None
+ 
+ 
+</failure>
+			<system-out>                elif data[:1] is not &quot;@&quot; and &quot;}&quot; in data or &quot;{&quot; in data:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="67" name="Mutant #60">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
+@@ -65,7 +65,7 @@
+                 if annot.upper() in data.upper():  # Change to start with
+                     code = get_func_body(filename, line_num)
+                     return code
+-                elif data[:1] is not &quot;@&quot; and &quot;}&quot; in data or &quot;{&quot; in data:
++                elif data[:1] is not &quot;@&quot; and &quot;}&quot; not in data or &quot;{&quot; in data:
+                     return None
+ 
+ 
+</failure>
+			<system-out>                elif data[:1] is not &quot;@&quot; and &quot;}&quot; in data or &quot;{&quot; in data:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="67" name="Mutant #61">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
+@@ -65,7 +65,7 @@
+                 if annot.upper() in data.upper():  # Change to start with
+                     code = get_func_body(filename, line_num)
+                     return code
+-                elif data[:1] is not &quot;@&quot; and &quot;}&quot; in data or &quot;{&quot; in data:
++                elif data[:1] is not &quot;@&quot; or &quot;}&quot; in data or &quot;{&quot; in data:
+                     return None
+ 
+ 
+</failure>
+			<system-out>                elif data[:1] is not &quot;@&quot; and &quot;}&quot; in data or &quot;{&quot; in data:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="67" name="Mutant #62">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
+@@ -65,7 +65,7 @@
+                 if annot.upper() in data.upper():  # Change to start with
+                     code = get_func_body(filename, line_num)
+                     return code
+-                elif data[:1] is not &quot;@&quot; and &quot;}&quot; in data or &quot;{&quot; in data:
++                elif data[:1] is not &quot;@&quot; and &quot;}&quot; in data or &quot;XX{XX&quot; in data:
+                     return None
+ 
+ 
+</failure>
+			<system-out>                elif data[:1] is not &quot;@&quot; and &quot;}&quot; in data or &quot;{&quot; in data:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="67" name="Mutant #63">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
+@@ -65,7 +65,7 @@
+                 if annot.upper() in data.upper():  # Change to start with
+                     code = get_func_body(filename, line_num)
+                     return code
+-                elif data[:1] is not &quot;@&quot; and &quot;}&quot; in data or &quot;{&quot; in data:
++                elif data[:1] is not &quot;@&quot; and &quot;}&quot; in data or &quot;{&quot; not in data:
+                     return None
+ 
+ 
+</failure>
+			<system-out>                elif data[:1] is not &quot;@&quot; and &quot;}&quot; in data or &quot;{&quot; in data:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="67" name="Mutant #64">
+			<system-out>                elif data[:1] is not &quot;@&quot; and &quot;}&quot; in data or &quot;{&quot; in data:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="77" name="Mutant #65">
+			<system-out>    line_num = int(line_num)</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="78" name="Mutant #66">
+			<system-out>    code = &quot;&quot;</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="78" name="Mutant #67">
+			<system-out>    code = &quot;&quot;</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="79" name="Mutant #68">
+			<system-out>    cnt_braket = 0</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="79" name="Mutant #69">
+			<system-out>    cnt_braket = 0</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="80" name="Mutant #70">
+			<system-out>    found_start = False</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="80" name="Mutant #71">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
+@@ -78,7 +78,7 @@
+     line_num = int(line_num)
+     code = &quot;&quot;
+     cnt_braket = 0
+-    found_start = False
++    found_start = None
+ 
+     with open(filename, &quot;r&quot;) as files:
+         for i, line in enumerate(files):
+</failure>
+			<system-out>    found_start = False</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="82" name="Mutant #72">
+			<system-out>    with open(filename, &quot;r&quot;) as files:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="84" name="Mutant #73">
+			<system-out>            if i &gt;= (line_num - 1):</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="84" name="Mutant #74">
+			<system-out>            if i &gt;= (line_num - 1):</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="84" name="Mutant #75">
+			<system-out>            if i &gt;= (line_num - 1):</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="85" name="Mutant #76">
+			<system-out>                code += line</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="87" name="Mutant #77">
+			<system-out>                if line.count(&quot;{&quot;) &gt; 0:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="87" name="Mutant #78">
+			<system-out>                if line.count(&quot;{&quot;) &gt; 0:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="87" name="Mutant #79">
+			<system-out>                if line.count(&quot;{&quot;) &gt; 0:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="88" name="Mutant #80">
+			<system-out>                    found_start = True</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="88" name="Mutant #81">
+			<system-out>                    found_start = True</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="89" name="Mutant #82">
+			<system-out>                    cnt_braket += line.count(&quot;{&quot;)</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="89" name="Mutant #83">
+			<system-out>                    cnt_braket += line.count(&quot;{&quot;)</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="91" name="Mutant #84">
+			<system-out>                if line.count(&quot;}&quot;) &gt; 0:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="91" name="Mutant #85">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
+@@ -89,7 +89,7 @@
+                     found_start = True
+                     cnt_braket += line.count(&quot;{&quot;)
+ 
+-                if line.count(&quot;}&quot;) &gt; 0:
++                if line.count(&quot;}&quot;) &gt;= 0:
+                     cnt_braket -= line.count(&quot;}&quot;)
+ 
+                 if cnt_braket == 0 and found_start is True:
+</failure>
+			<system-out>                if line.count(&quot;}&quot;) &gt; 0:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="91" name="Mutant #86">
+			<system-out>                if line.count(&quot;}&quot;) &gt; 0:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="92" name="Mutant #87">
+			<system-out>                    cnt_braket -= line.count(&quot;}&quot;)</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="92" name="Mutant #88">
+			<system-out>                    cnt_braket -= line.count(&quot;}&quot;)</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="94" name="Mutant #89">
+			<system-out>                if cnt_braket == 0 and found_start is True:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="94" name="Mutant #90">
+			<system-out>                if cnt_braket == 0 and found_start is True:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="94" name="Mutant #91">
+			<system-out>                if cnt_braket == 0 and found_start is True:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="94" name="Mutant #92">
+			<system-out>                if cnt_braket == 0 and found_start is True:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="94" name="Mutant #93">
+			<system-out>                if cnt_braket == 0 and found_start is True:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="104" name="Mutant #94">
+			<system-out>    ext = [&quot;.java&quot;, &quot;.cpp&quot;, &quot;.c&quot;, &quot;.cs&quot;]</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="104" name="Mutant #95">
+			<system-out>    ext = [&quot;.java&quot;, &quot;.cpp&quot;, &quot;.c&quot;, &quot;.cs&quot;]</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="104" name="Mutant #96">
+			<system-out>    ext = [&quot;.java&quot;, &quot;.cpp&quot;, &quot;.c&quot;, &quot;.cs&quot;]</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="104" name="Mutant #97">
+			<system-out>    ext = [&quot;.java&quot;, &quot;.cpp&quot;, &quot;.c&quot;, &quot;.cs&quot;]</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="104" name="Mutant #98">
+			<system-out>    ext = [&quot;.java&quot;, &quot;.cpp&quot;, &quot;.c&quot;, &quot;.cs&quot;]</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="105" name="Mutant #99">
+			<system-out>    local_files = []</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="107" name="Mutant #100">
+			<system-out>        extension = os.path.splitext(files)</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="108" name="Mutant #101">
+			<system-out>        if extension[1] in ext:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="108" name="Mutant #102">
+			<system-out>        if extension[1] in ext:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="115" name="Mutant #103">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
+@@ -113,7 +113,7 @@
+ 
+ def __write_xlsx(data_f, name):
+     &quot;&quot;&quot; Function which write the dataframe to xlsx &quot;&quot;&quot;
+-    curr_path = os.path.dirname(os.path.abspath(__file__))
++    curr_path = None
+     file_path = os.path.join(curr_path, name)
+     # Github open ticket for the abstract method
+     writer = pd.ExcelWriter('%s.xlsx' % file_path, engine='xlsxwriter')
+</failure>
+			<system-out>    curr_path = os.path.dirname(os.path.abspath(__file__))</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="116" name="Mutant #104">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
+@@ -114,7 +114,7 @@
+ def __write_xlsx(data_f, name):
+     &quot;&quot;&quot; Function which write the dataframe to xlsx &quot;&quot;&quot;
+     curr_path = os.path.dirname(os.path.abspath(__file__))
+-    file_path = os.path.join(curr_path, name)
++    file_path = None
+     # Github open ticket for the abstract method
+     writer = pd.ExcelWriter('%s.xlsx' % file_path, engine='xlsxwriter')
+     data_f.to_excel(writer, sheet_name=name)
+</failure>
+			<system-out>    file_path = os.path.join(curr_path, name)</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="118" name="Mutant #105">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
+@@ -116,7 +116,7 @@
+     curr_path = os.path.dirname(os.path.abspath(__file__))
+     file_path = os.path.join(curr_path, name)
+     # Github open ticket for the abstract method
+-    writer = pd.ExcelWriter('%s.xlsx' % file_path, engine='xlsxwriter')
++    writer = pd.ExcelWriter('XX%s.xlsxXX' % file_path, engine='xlsxwriter')
+     data_f.to_excel(writer, sheet_name=name)
+     writer.save()
+ 
+</failure>
+			<system-out>    writer = pd.ExcelWriter('%s.xlsx' % file_path, engine='xlsxwriter')</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="118" name="Mutant #106">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
+@@ -116,7 +116,7 @@
+     curr_path = os.path.dirname(os.path.abspath(__file__))
+     file_path = os.path.join(curr_path, name)
+     # Github open ticket for the abstract method
+-    writer = pd.ExcelWriter('%s.xlsx' % file_path, engine='xlsxwriter')
++    writer = pd.ExcelWriter('%s.xlsx' / file_path, engine='xlsxwriter')
+     data_f.to_excel(writer, sheet_name=name)
+     writer.save()
+ 
+</failure>
+			<system-out>    writer = pd.ExcelWriter('%s.xlsx' % file_path, engine='xlsxwriter')</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="118" name="Mutant #107">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
+@@ -116,7 +116,7 @@
+     curr_path = os.path.dirname(os.path.abspath(__file__))
+     file_path = os.path.join(curr_path, name)
+     # Github open ticket for the abstract method
+-    writer = pd.ExcelWriter('%s.xlsx' % file_path, engine='xlsxwriter')
++    writer = pd.ExcelWriter('%s.xlsx' % file_path, engine='XXxlsxwriterXX')
+     data_f.to_excel(writer, sheet_name=name)
+     writer.save()
+ 
+</failure>
+			<system-out>    writer = pd.ExcelWriter('%s.xlsx' % file_path, engine='xlsxwriter')</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="118" name="Mutant #108">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
+@@ -116,7 +116,7 @@
+     curr_path = os.path.dirname(os.path.abspath(__file__))
+     file_path = os.path.join(curr_path, name)
+     # Github open ticket for the abstract method
+-    writer = pd.ExcelWriter('%s.xlsx' % file_path, engine='xlsxwriter')
++    writer = None
+     data_f.to_excel(writer, sheet_name=name)
+     writer.save()
+ 
+</failure>
+			<system-out>    writer = pd.ExcelWriter('%s.xlsx' % file_path, engine='xlsxwriter')</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="131" name="Mutant #109">
+			<system-out>    test_files = get_test_files(path_repo)</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="132" name="Mutant #110">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
+@@ -130,7 +130,7 @@
+        @return
+        This function returns the list of required file(Source/test files) &quot;&quot;&quot;
+     test_files = get_test_files(path_repo)
+-    final_files = []
++    final_files = None
+     if annot is not None:
+         return filter_files(get_file_names(path_repo))
+     if code.upper() == &quot;TRUE&quot; and test.upper() == &quot;TRUE&quot;:
+</failure>
+			<system-out>    final_files = []</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="133" name="Mutant #111">
+			<system-out>    if annot is not None:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="135" name="Mutant #112">
+			<system-out>    if code.upper() == &quot;TRUE&quot; and test.upper() == &quot;TRUE&quot;:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="135" name="Mutant #113">
+			<system-out>    if code.upper() == &quot;TRUE&quot; and test.upper() == &quot;TRUE&quot;:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="135" name="Mutant #114">
+			<system-out>    if code.upper() == &quot;TRUE&quot; and test.upper() == &quot;TRUE&quot;:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="135" name="Mutant #115">
+			<system-out>    if code.upper() == &quot;TRUE&quot; and test.upper() == &quot;TRUE&quot;:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="135" name="Mutant #116">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
+@@ -133,7 +133,7 @@
+     final_files = []
+     if annot is not None:
+         return filter_files(get_file_names(path_repo))
+-    if code.upper() == &quot;TRUE&quot; and test.upper() == &quot;TRUE&quot;:
++    if code.upper() == &quot;TRUE&quot; or test.upper() == &quot;TRUE&quot;:
+         final_files = filter_files(get_file_names(path_repo))
+     if code.upper() == &quot;TRUE&quot; and test.upper() == &quot;FALSE&quot;:
+         final_files = filter_files(list(set(get_file_names(path_repo)) ^ set(test_files)))
+</failure>
+			<system-out>    if code.upper() == &quot;TRUE&quot; and test.upper() == &quot;TRUE&quot;:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="136" name="Mutant #117">
+			<system-out>        final_files = filter_files(get_file_names(path_repo))</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="137" name="Mutant #118">
+			<system-out>    if code.upper() == &quot;TRUE&quot; and test.upper() == &quot;FALSE&quot;:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="137" name="Mutant #119">
+			<system-out>    if code.upper() == &quot;TRUE&quot; and test.upper() == &quot;FALSE&quot;:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="137" name="Mutant #120">
+			<system-out>    if code.upper() == &quot;TRUE&quot; and test.upper() == &quot;FALSE&quot;:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="137" name="Mutant #121">
+			<system-out>    if code.upper() == &quot;TRUE&quot; and test.upper() == &quot;FALSE&quot;:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="137" name="Mutant #122">
+			<system-out>    if code.upper() == &quot;TRUE&quot; and test.upper() == &quot;FALSE&quot;:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="138" name="Mutant #123">
+			<system-out>        final_files = filter_files(list(set(get_file_names(path_repo)) ^ set(test_files)))</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="138" name="Mutant #124">
+			<system-out>        final_files = filter_files(list(set(get_file_names(path_repo)) ^ set(test_files)))</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="139" name="Mutant #125">
+			<system-out>    if code.upper() == &quot;FALSE&quot; and test.upper() == &quot;TRUE&quot;:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="139" name="Mutant #126">
+			<system-out>    if code.upper() == &quot;FALSE&quot; and test.upper() == &quot;TRUE&quot;:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="139" name="Mutant #127">
+			<system-out>    if code.upper() == &quot;FALSE&quot; and test.upper() == &quot;TRUE&quot;:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="139" name="Mutant #128">
+			<system-out>    if code.upper() == &quot;FALSE&quot; and test.upper() == &quot;TRUE&quot;:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="139" name="Mutant #129">
+			<system-out>    if code.upper() == &quot;FALSE&quot; and test.upper() == &quot;TRUE&quot;:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="140" name="Mutant #130">
+			<system-out>        final_files = filter_files(test_files)</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="141" name="Mutant #131">
+			<system-out>    if code.upper() == &quot;FALSE&quot; and test.upper() == &quot;FALSE&quot;:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="141" name="Mutant #132">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
+@@ -139,7 +139,7 @@
+         final_files = filter_files(list(set(get_file_names(path_repo)) ^ set(test_files)))
+     if code.upper() == &quot;FALSE&quot; and test.upper() == &quot;TRUE&quot;:
+         final_files = filter_files(test_files)
+-    if code.upper() == &quot;FALSE&quot; and test.upper() == &quot;FALSE&quot;:
++    if code.upper() == &quot;XXFALSEXX&quot; and test.upper() == &quot;FALSE&quot;:
+         final_files = filter_files(get_file_names(path_repo))
+     return final_files
+ 
+</failure>
+			<system-out>    if code.upper() == &quot;FALSE&quot; and test.upper() == &quot;FALSE&quot;:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="141" name="Mutant #133">
+			<system-out>    if code.upper() == &quot;FALSE&quot; and test.upper() == &quot;FALSE&quot;:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="141" name="Mutant #134">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
+@@ -139,7 +139,7 @@
+         final_files = filter_files(list(set(get_file_names(path_repo)) ^ set(test_files)))
+     if code.upper() == &quot;FALSE&quot; and test.upper() == &quot;TRUE&quot;:
+         final_files = filter_files(test_files)
+-    if code.upper() == &quot;FALSE&quot; and test.upper() == &quot;FALSE&quot;:
++    if code.upper() == &quot;FALSE&quot; and test.upper() == &quot;XXFALSEXX&quot;:
+         final_files = filter_files(get_file_names(path_repo))
+     return final_files
+ 
+</failure>
+			<system-out>    if code.upper() == &quot;FALSE&quot; and test.upper() == &quot;FALSE&quot;:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="141" name="Mutant #135">
+			<system-out>    if code.upper() == &quot;FALSE&quot; and test.upper() == &quot;FALSE&quot;:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="142" name="Mutant #136">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
+@@ -140,7 +140,7 @@
+     if code.upper() == &quot;FALSE&quot; and test.upper() == &quot;TRUE&quot;:
+         final_files = filter_files(test_files)
+     if code.upper() == &quot;FALSE&quot; and test.upper() == &quot;FALSE&quot;:
+-        final_files = filter_files(get_file_names(path_repo))
++        final_files = None
+     return final_files
+ 
+ 
+</failure>
+			<system-out>        final_files = filter_files(get_file_names(path_repo))</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="152" name="Mutant #137">
+			<system-out>    test_files = []</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="154" name="Mutant #138">
+			<system-out>        split_path = file_paths.split(os.sep)</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="156" name="Mutant #139">
+			<system-out>            if folder_name in (&quot;test&quot;, &quot;tst&quot;):</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="156" name="Mutant #140">
+			<system-out>            if folder_name in (&quot;test&quot;, &quot;tst&quot;):</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="156" name="Mutant #141">
+			<system-out>            if folder_name in (&quot;test&quot;, &quot;tst&quot;):</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="165" name="Mutant #142">
+			<system-out>    line_data = list(filter(None, [line.rstrip() for line in open(file_name)]))</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="165" name="Mutant #143">
+			<system-out>    line_data = list(filter(None, [line.rstrip() for line in open(file_name)]))</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="166" name="Mutant #144">
+			<system-out>    data = []</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="167" name="Mutant #145">
+			<system-out>    for num, line in enumerate(line_data, 1):</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="168" name="Mutant #146">
+			<system-out>        if annot.upper() in line.strip().upper():</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="172" name="Mutant #149">
+			<system-out>                data.append(line_data[num - (int(delta) + 1) + i])</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="172" name="Mutant #150">
+			<system-out>                data.append(line_data[num - (int(delta) + 1) + i])</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="172" name="Mutant #151">
+			<system-out>                data.append(line_data[num - (int(delta) + 1) + i])</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="172" name="Mutant #152">
+			<system-out>                data.append(line_data[num - (int(delta) + 1) + i])</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="173" name="Mutant #153">
+			<system-out>            DELTA_BODY.append(&quot;\n&quot;.join(data))</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="174" name="Mutant #154">
+			<system-out>            UID_LIST.append(os.path.basename(file_name) + &quot;_&quot;)</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="174" name="Mutant #155">
+			<system-out>            UID_LIST.append(os.path.basename(file_name) + &quot;_&quot;)</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="175" name="Mutant #156">
+			<system-out>            data = []</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="178" name="Mutant #157">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
+@@ -176,7 +176,7 @@
+             data = []
+ 
+ 
+-def extractor(path_loc, parse_code=&quot;True&quot;, parse_test=&quot;True&quot;, annot=None, delta=None):
++def extractor(path_loc, parse_code=&quot;XXTrueXX&quot;, parse_test=&quot;True&quot;, annot=None, delta=None):
+     &quot;&quot;&quot; Function that initiates the overall process of extracting function/method definitions from the files
+     @parameters
+     path_loc is directory path of the repository
+</failure>
+			<system-out>def extractor(path_loc, parse_code=&quot;True&quot;, parse_test=&quot;True&quot;, annot=None, delta=None):</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="178" name="Mutant #158">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
+@@ -176,7 +176,7 @@
+             data = []
+ 
+ 
+-def extractor(path_loc, parse_code=&quot;True&quot;, parse_test=&quot;True&quot;, annot=None, delta=None):
++def extractor(path_loc, parse_code=&quot;True&quot;, parse_test=&quot;XXTrueXX&quot;, annot=None, delta=None):
+     &quot;&quot;&quot; Function that initiates the overall process of extracting function/method definitions from the files
+     @parameters
+     path_loc is directory path of the repository
+</failure>
+			<system-out>def extractor(path_loc, parse_code=&quot;True&quot;, parse_test=&quot;True&quot;, annot=None, delta=None):</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="190" name="Mutant #159">
+			<system-out>    if not os.path.exists(path_loc):</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="191" name="Mutant #160">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
+@@ -189,7 +189,7 @@
+     the above function call initiates the process to run function definition extraction on
+     code files of the repository given &quot;&quot;&quot;
+     if not os.path.exists(path_loc):
+-        print(&quot;Enter valid path&quot;)
++        print(&quot;XXEnter valid pathXX&quot;)
+         return &quot;Enter valid path&quot;
+ 
+     code_list = []
+</failure>
+			<system-out>        print(&quot;Enter valid path&quot;)</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="192" name="Mutant #161">
+			<system-out>        return &quot;Enter valid path&quot;</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="194" name="Mutant #162">
+			<system-out>    code_list = []</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="196" name="Mutant #163">
+			<system-out>        if delta is not None:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="200" name="Mutant #164">
+			<system-out>            functions, line_num = get_function_names(func_name)</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="202" name="Mutant #165">
+			<system-out>                if check_annot(func_name, lin_no, annot) is not None:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="204" name="Mutant #166">
+			<system-out>                    UID_LIST.append(os.path.basename(func_name) + &quot;_&quot; + func)</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="204" name="Mutant #167">
+			<system-out>                    UID_LIST.append(os.path.basename(func_name) + &quot;_&quot; + func)</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="204" name="Mutant #168">
+			<system-out>                    UID_LIST.append(os.path.basename(func_name) + &quot;_&quot; + func)</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="205" name="Mutant #169">
+			<system-out>    if delta is not None:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="206" name="Mutant #170">
+			<system-out>        data = {'Uniq ID': UID_LIST, 'Code': DELTA_BODY}</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="206" name="Mutant #171">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
+@@ -204,7 +204,7 @@
+                     code_list.append(check_annot(func_name, lin_no, annot))
+                     UID_LIST.append(os.path.basename(func_name) + &quot;_&quot; + func)
+     if delta is not None:
+-        data = {'Uniq ID': UID_LIST, 'Code': DELTA_BODY}
++        data = {'Uniq ID': UID_LIST, 'XXCodeXX': DELTA_BODY}
+         data_frame = pd.DataFrame(data)
+         UID_LIST.clear()
+         mask = data_frame['Uniq ID'].duplicated(keep=False)
+</failure>
+			<system-out>        data = {'Uniq ID': UID_LIST, 'Code': DELTA_BODY}</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="206" name="Mutant #172">
+			<system-out>        data = {'Uniq ID': UID_LIST, 'Code': DELTA_BODY}</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="207" name="Mutant #173">
+			<system-out>        data_frame = pd.DataFrame(data)</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="209" name="Mutant #174">
+			<system-out>        mask = data_frame['Uniq ID'].duplicated(keep=False)</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="209" name="Mutant #175">
+			<system-out>        mask = data_frame['Uniq ID'].duplicated(keep=False)</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="209" name="Mutant #176">
+			<system-out>        mask = data_frame['Uniq ID'].duplicated(keep=False)</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="210" name="Mutant #177">
+			<system-out>        data_frame.loc[mask, 'Uniq ID'] += data_frame.groupby('Uniq ID').cumcount().add(1).astype(str)</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="210" name="Mutant #178">
+			<system-out>        data_frame.loc[mask, 'Uniq ID'] += data_frame.groupby('Uniq ID').cumcount().add(1).astype(str)</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="210" name="Mutant #179">
+			<system-out>        data_frame.loc[mask, 'Uniq ID'] += data_frame.groupby('Uniq ID').cumcount().add(1).astype(str)</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="210" name="Mutant #180">
+			<system-out>        data_frame.loc[mask, 'Uniq ID'] += data_frame.groupby('Uniq ID').cumcount().add(1).astype(str)</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="211" name="Mutant #181">
+			<system-out>        return data_frame.set_index(&quot;Uniq ID&quot;).sort_values('Uniq ID')</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="211" name="Mutant #182">
+			<system-out>        return data_frame.set_index(&quot;Uniq ID&quot;).sort_values('Uniq ID')</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="213" name="Mutant #183">
+			<system-out>        data = {'Uniq ID': UID_LIST, 'Code': code_list}</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="213" name="Mutant #184">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py
+@@ -211,7 +211,7 @@
+         data_frame.loc[mask, 'Uniq ID'] += data_frame.groupby('Uniq ID').cumcount().add(1).astype(str)
+         return data_frame.set_index(&quot;Uniq ID&quot;).sort_values('Uniq ID')
+     else:
+-        data = {'Uniq ID': UID_LIST, 'Code': code_list}
++        data = {'Uniq ID': UID_LIST, 'XXCodeXX': code_list}
+         data_frame = pd.DataFrame.from_dict(data, orient='index')
+         data_frame = data_frame.transpose()
+         UID_LIST.clear()
+</failure>
+			<system-out>        data = {'Uniq ID': UID_LIST, 'Code': code_list}</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="213" name="Mutant #185">
+			<system-out>        data = {'Uniq ID': UID_LIST, 'Code': code_list}</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="214" name="Mutant #186">
+			<system-out>        data_frame = pd.DataFrame.from_dict(data, orient='index')</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="214" name="Mutant #187">
+			<system-out>        data_frame = pd.DataFrame.from_dict(data, orient='index')</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="215" name="Mutant #188">
+			<system-out>        data_frame = data_frame.transpose()</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="217" name="Mutant #189">
+			<system-out>        return data_frame.set_index(&quot;Uniq ID&quot;).sort_values('Uniq ID')</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="217" name="Mutant #190">
+			<system-out>        return data_frame.set_index(&quot;Uniq ID&quot;).sort_values('Uniq ID')</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py" line="17" name="Mutant #191">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
+@@ -15,7 +15,7 @@
+     &quot;&quot;&quot; Function which add the command line arguments required for the commandline input
+     of function definition extractor &quot;&quot;&quot;
+     # Create the parser
+-    func_parser = argparse.ArgumentParser(description='Function Definition Extractor')
++    func_parser = argparse.ArgumentParser(description='XXFunction Definition ExtractorXX')
+ 
+     # Add the arguments
+     func_parser.add_argument('--path',
+</failure>
+			<system-out>    func_parser = argparse.ArgumentParser(description='Function Definition Extractor')</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py" line="17" name="Mutant #192">
+			<system-out>    func_parser = argparse.ArgumentParser(description='Function Definition Extractor')</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py" line="20" name="Mutant #193">
+			<system-out>    func_parser.add_argument('--path',</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py" line="21" name="Mutant #194">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
+@@ -19,7 +19,7 @@
+ 
+     # Add the arguments
+     func_parser.add_argument('--path',
+-                             metavar='--p',
++                             metavar='XX--pXX',
+                              type=str,
+                              help='the Input folder path')
+ 
+</failure>
+			<system-out>                             metavar='--p',</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py" line="23" name="Mutant #195">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
+@@ -21,7 +21,7 @@
+     func_parser.add_argument('--path',
+                              metavar='--p',
+                              type=str,
+-                             help='the Input folder path')
++                             help='XXthe Input folder pathXX')
+ 
+     func_parser.add_argument('--code',
+                              metavar='--c',
+</failure>
+			<system-out>                             help='the Input folder path')</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py" line="25" name="Mutant #196">
+			<system-out>    func_parser.add_argument('--code',</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py" line="26" name="Mutant #197">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
+@@ -24,7 +24,7 @@
+                              help='the Input folder path')
+ 
+     func_parser.add_argument('--code',
+-                             metavar='--c',
++                             metavar='XX--cXX',
+                              type=str,
+                              default=&quot;true&quot;,
+                              help='True/False for source code to be processed?')
+</failure>
+			<system-out>                             metavar='--c',</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py" line="28" name="Mutant #198">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
+@@ -26,7 +26,7 @@
+     func_parser.add_argument('--code',
+                              metavar='--c',
+                              type=str,
+-                             default=&quot;true&quot;,
++                             default=&quot;XXtrueXX&quot;,
+                              help='True/False for source code to be processed?')
+ 
+     func_parser.add_argument('--test',
+</failure>
+			<system-out>                             default=&quot;true&quot;,</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py" line="29" name="Mutant #199">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
+@@ -27,7 +27,7 @@
+                              metavar='--c',
+                              type=str,
+                              default=&quot;true&quot;,
+-                             help='True/False for source code to be processed?')
++                             help='XXTrue/False for source code to be processed?XX')
+ 
+     func_parser.add_argument('--test',
+                              metavar='--t',
+</failure>
+			<system-out>                             help='True/False for source code to be processed?')</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py" line="31" name="Mutant #200">
+			<system-out>    func_parser.add_argument('--test',</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py" line="32" name="Mutant #201">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
+@@ -30,7 +30,7 @@
+                              help='True/False for source code to be processed?')
+ 
+     func_parser.add_argument('--test',
+-                             metavar='--t',
++                             metavar='XX--tXX',
+                              type=str,
+                              default=&quot;true&quot;,
+                              help='True/False for test code to be processed?')
+</failure>
+			<system-out>                             metavar='--t',</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py" line="34" name="Mutant #202">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
+@@ -32,7 +32,7 @@
+     func_parser.add_argument('--test',
+                              metavar='--t',
+                              type=str,
+-                             default=&quot;true&quot;,
++                             default=&quot;XXtrueXX&quot;,
+                              help='True/False for test code to be processed?')
+ 
+     func_parser.add_argument('--annot',
+</failure>
+			<system-out>                             default=&quot;true&quot;,</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py" line="35" name="Mutant #203">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
+@@ -33,7 +33,7 @@
+                              metavar='--t',
+                              type=str,
+                              default=&quot;true&quot;,
+-                             help='True/False for test code to be processed?')
++                             help='XXTrue/False for test code to be processed?XX')
+ 
+     func_parser.add_argument('--annot',
+                              metavar='--a',
+</failure>
+			<system-out>                             help='True/False for test code to be processed?')</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py" line="37" name="Mutant #204">
+			<system-out>    func_parser.add_argument('--annot',</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py" line="38" name="Mutant #205">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
+@@ -36,7 +36,7 @@
+                              help='True/False for test code to be processed?')
+ 
+     func_parser.add_argument('--annot',
+-                             metavar='--a',
++                             metavar='XX--aXX',
+                              type=str,
+                              default=None,
+                              help='Annotation condition to get function/method definitions')
+</failure>
+			<system-out>                             metavar='--a',</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py" line="41" name="Mutant #206">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
+@@ -39,7 +39,7 @@
+                              metavar='--a',
+                              type=str,
+                              default=None,
+-                             help='Annotation condition to get function/method definitions')
++                             help='XXAnnotation condition to get function/method definitionsXX')
+ 
+     func_parser.add_argument('--delta',
+                              metavar='--d',
+</failure>
+			<system-out>                             help='Annotation condition to get function/method definitions')</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py" line="43" name="Mutant #207">
+			<system-out>    func_parser.add_argument('--delta',</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py" line="44" name="Mutant #208">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
+@@ -42,7 +42,7 @@
+                              help='Annotation condition to get function/method definitions')
+ 
+     func_parser.add_argument('--delta',
+-                             metavar='--d',
++                             metavar='XX--dXX',
+                              type=str,
+                              default=None,
+                              help='Required number of lines at annotated method')
+</failure>
+			<system-out>                             metavar='--d',</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py" line="47" name="Mutant #209">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
+@@ -45,7 +45,7 @@
+                              metavar='--d',
+                              type=str,
+                              default=None,
+-                             help='Required number of lines at annotated method')
++                             help='XXRequired number of lines at annotated methodXX')
+ 
+     # ...Create your parser as you like...
+     return func_parser.parse_args(args)
+</failure>
+			<system-out>                             help='Required number of lines at annotated method')</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py" line="55" name="Mutant #210">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
+@@ -53,7 +53,7 @@
+ 
+ def validate_inputs(arg_path):
+     &quot;&quot;&quot;This function helps in validating the user inputs&quot;&quot;&quot;
+-    status_path = os.path.exists(arg_path)
++    status_path = None
+     if not status_path:
+         print(&quot;Enter Valid Path&quot;)
+         sys.stdout.flush()
+</failure>
+			<system-out>    status_path = os.path.exists(arg_path)</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py" line="56" name="Mutant #211">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
+@@ -54,7 +54,7 @@
+ def validate_inputs(arg_path):
+     &quot;&quot;&quot;This function helps in validating the user inputs&quot;&quot;&quot;
+     status_path = os.path.exists(arg_path)
+-    if not status_path:
++    if  status_path:
+         print(&quot;Enter Valid Path&quot;)
+         sys.stdout.flush()
+         script = os.path.abspath(os.path.join(os.path.realpath(__file__)))
+</failure>
+			<system-out>    if not status_path:</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py" line="57" name="Mutant #212">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
+@@ -55,7 +55,7 @@
+     &quot;&quot;&quot;This function helps in validating the user inputs&quot;&quot;&quot;
+     status_path = os.path.exists(arg_path)
+     if not status_path:
+-        print(&quot;Enter Valid Path&quot;)
++        print(&quot;XXEnter Valid PathXX&quot;)
+         sys.stdout.flush()
+         script = os.path.abspath(os.path.join(os.path.realpath(__file__)))
+         cmd = 'python %s --h' % script
+</failure>
+			<system-out>        print(&quot;Enter Valid Path&quot;)</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py" line="59" name="Mutant #213">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
+@@ -57,7 +57,7 @@
+     if not status_path:
+         print(&quot;Enter Valid Path&quot;)
+         sys.stdout.flush()
+-        script = os.path.abspath(os.path.join(os.path.realpath(__file__)))
++        script = None
+         cmd = 'python %s --h' % script
+         subprocess.Popen(cmd).communicate()[0]
+         raise SystemExit
+</failure>
+			<system-out>        script = os.path.abspath(os.path.join(os.path.realpath(__file__)))</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py" line="60" name="Mutant #214">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
+@@ -58,7 +58,7 @@
+         print(&quot;Enter Valid Path&quot;)
+         sys.stdout.flush()
+         script = os.path.abspath(os.path.join(os.path.realpath(__file__)))
+-        cmd = 'python %s --h' % script
++        cmd = 'XXpython %s --hXX' % script
+         subprocess.Popen(cmd).communicate()[0]
+         raise SystemExit
+ 
+</failure>
+			<system-out>        cmd = 'python %s --h' % script</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py" line="60" name="Mutant #215">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
+@@ -58,7 +58,7 @@
+         print(&quot;Enter Valid Path&quot;)
+         sys.stdout.flush()
+         script = os.path.abspath(os.path.join(os.path.realpath(__file__)))
+-        cmd = 'python %s --h' % script
++        cmd = 'python %s --h' / script
+         subprocess.Popen(cmd).communicate()[0]
+         raise SystemExit
+ 
+</failure>
+			<system-out>        cmd = 'python %s --h' % script</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py" line="60" name="Mutant #216">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
+@@ -58,7 +58,7 @@
+         print(&quot;Enter Valid Path&quot;)
+         sys.stdout.flush()
+         script = os.path.abspath(os.path.join(os.path.realpath(__file__)))
+-        cmd = 'python %s --h' % script
++        cmd = None
+         subprocess.Popen(cmd).communicate()[0]
+         raise SystemExit
+ 
+</failure>
+			<system-out>        cmd = 'python %s --h' % script</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py" line="61" name="Mutant #217">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
+@@ -59,7 +59,7 @@
+         sys.stdout.flush()
+         script = os.path.abspath(os.path.join(os.path.realpath(__file__)))
+         cmd = 'python %s --h' % script
+-        subprocess.Popen(cmd).communicate()[0]
++        subprocess.Popen(cmd).communicate()[1]
+         raise SystemExit
+ 
+ 
+</failure>
+			<system-out>        subprocess.Popen(cmd).communicate()[0]</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py" line="65" name="Mutant #218">
+			<system-out>if __name__ == '__main__':</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py" line="65" name="Mutant #219">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
+@@ -63,7 +63,7 @@
+         raise SystemExit
+ 
+ 
+-if __name__ == '__main__':
++if __name__ == 'XX__main__XX':
+     # Execute the parse_args() method
+     ARGS = create_parser(sys.argv[1:])
+     validate_inputs(ARGS.path)
+</failure>
+			<system-out>if __name__ == '__main__':</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py" line="67" name="Mutant #220">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
+@@ -65,7 +65,7 @@
+ 
+ if __name__ == '__main__':
+     # Execute the parse_args() method
+-    ARGS = create_parser(sys.argv[1:])
++    ARGS = create_parser(sys.argv[2:])
+     validate_inputs(ARGS.path)
+     # Process the similarity with inputs provided
+     DATA_FR = extractor(ARGS.path, ARGS.code, ARGS.test, ARGS.annot, ARGS.delta)
+</failure>
+			<system-out>    ARGS = create_parser(sys.argv[1:])</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py" line="67" name="Mutant #221">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
+@@ -65,7 +65,7 @@
+ 
+ if __name__ == '__main__':
+     # Execute the parse_args() method
+-    ARGS = create_parser(sys.argv[1:])
++    ARGS = None
+     validate_inputs(ARGS.path)
+     # Process the similarity with inputs provided
+     DATA_FR = extractor(ARGS.path, ARGS.code, ARGS.test, ARGS.annot, ARGS.delta)
+</failure>
+			<system-out>    ARGS = create_parser(sys.argv[1:])</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py" line="70" name="Mutant #222">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
+@@ -68,7 +68,7 @@
+     ARGS = create_parser(sys.argv[1:])
+     validate_inputs(ARGS.path)
+     # Process the similarity with inputs provided
+-    DATA_FR = extractor(ARGS.path, ARGS.code, ARGS.test, ARGS.annot, ARGS.delta)
++    DATA_FR = None
+     WRITER = pd.ExcelWriter('%s.xlsx' % os.path.join(ARGS.path, &quot;funcDefExtractResult&quot;), engine='xlsxwriter')
+     DATA_FR.to_excel(WRITER, sheet_name=&quot;funcDefExtractResult&quot;)
+     WRITER.save()
+</failure>
+			<system-out>    DATA_FR = extractor(ARGS.path, ARGS.code, ARGS.test, ARGS.annot, ARGS.delta)</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py" line="71" name="Mutant #223">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
+@@ -69,7 +69,7 @@
+     validate_inputs(ARGS.path)
+     # Process the similarity with inputs provided
+     DATA_FR = extractor(ARGS.path, ARGS.code, ARGS.test, ARGS.annot, ARGS.delta)
+-    WRITER = pd.ExcelWriter('%s.xlsx' % os.path.join(ARGS.path, &quot;funcDefExtractResult&quot;), engine='xlsxwriter')
++    WRITER = pd.ExcelWriter('XX%s.xlsxXX' % os.path.join(ARGS.path, &quot;funcDefExtractResult&quot;), engine='xlsxwriter')
+     DATA_FR.to_excel(WRITER, sheet_name=&quot;funcDefExtractResult&quot;)
+     WRITER.save()
+ 
+</failure>
+			<system-out>    WRITER = pd.ExcelWriter('%s.xlsx' % os.path.join(ARGS.path, &quot;funcDefExtractResult&quot;), engine='xlsxwriter')</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py" line="71" name="Mutant #224">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
+@@ -69,7 +69,7 @@
+     validate_inputs(ARGS.path)
+     # Process the similarity with inputs provided
+     DATA_FR = extractor(ARGS.path, ARGS.code, ARGS.test, ARGS.annot, ARGS.delta)
+-    WRITER = pd.ExcelWriter('%s.xlsx' % os.path.join(ARGS.path, &quot;funcDefExtractResult&quot;), engine='xlsxwriter')
++    WRITER = pd.ExcelWriter('%s.xlsx' / os.path.join(ARGS.path, &quot;funcDefExtractResult&quot;), engine='xlsxwriter')
+     DATA_FR.to_excel(WRITER, sheet_name=&quot;funcDefExtractResult&quot;)
+     WRITER.save()
+ 
+</failure>
+			<system-out>    WRITER = pd.ExcelWriter('%s.xlsx' % os.path.join(ARGS.path, &quot;funcDefExtractResult&quot;), engine='xlsxwriter')</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py" line="71" name="Mutant #225">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
+@@ -69,7 +69,7 @@
+     validate_inputs(ARGS.path)
+     # Process the similarity with inputs provided
+     DATA_FR = extractor(ARGS.path, ARGS.code, ARGS.test, ARGS.annot, ARGS.delta)
+-    WRITER = pd.ExcelWriter('%s.xlsx' % os.path.join(ARGS.path, &quot;funcDefExtractResult&quot;), engine='xlsxwriter')
++    WRITER = pd.ExcelWriter('%s.xlsx' % os.path.join(ARGS.path, &quot;XXfuncDefExtractResultXX&quot;), engine='xlsxwriter')
+     DATA_FR.to_excel(WRITER, sheet_name=&quot;funcDefExtractResult&quot;)
+     WRITER.save()
+ 
+</failure>
+			<system-out>    WRITER = pd.ExcelWriter('%s.xlsx' % os.path.join(ARGS.path, &quot;funcDefExtractResult&quot;), engine='xlsxwriter')</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py" line="71" name="Mutant #226">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
+@@ -69,7 +69,7 @@
+     validate_inputs(ARGS.path)
+     # Process the similarity with inputs provided
+     DATA_FR = extractor(ARGS.path, ARGS.code, ARGS.test, ARGS.annot, ARGS.delta)
+-    WRITER = pd.ExcelWriter('%s.xlsx' % os.path.join(ARGS.path, &quot;funcDefExtractResult&quot;), engine='xlsxwriter')
++    WRITER = pd.ExcelWriter('%s.xlsx' % os.path.join(ARGS.path, &quot;funcDefExtractResult&quot;), engine='XXxlsxwriterXX')
+     DATA_FR.to_excel(WRITER, sheet_name=&quot;funcDefExtractResult&quot;)
+     WRITER.save()
+ 
+</failure>
+			<system-out>    WRITER = pd.ExcelWriter('%s.xlsx' % os.path.join(ARGS.path, &quot;funcDefExtractResult&quot;), engine='xlsxwriter')</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py" line="71" name="Mutant #227">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
+@@ -69,7 +69,7 @@
+     validate_inputs(ARGS.path)
+     # Process the similarity with inputs provided
+     DATA_FR = extractor(ARGS.path, ARGS.code, ARGS.test, ARGS.annot, ARGS.delta)
+-    WRITER = pd.ExcelWriter('%s.xlsx' % os.path.join(ARGS.path, &quot;funcDefExtractResult&quot;), engine='xlsxwriter')
++    WRITER = None
+     DATA_FR.to_excel(WRITER, sheet_name=&quot;funcDefExtractResult&quot;)
+     WRITER.save()
+ 
+</failure>
+			<system-out>    WRITER = pd.ExcelWriter('%s.xlsx' % os.path.join(ARGS.path, &quot;funcDefExtractResult&quot;), engine='xlsxwriter')</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py" line="72" name="Mutant #228">
+			<failure message="bad_survived" type="failure">--- C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
++++ C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\extractor_cmd.py
+@@ -70,6 +70,6 @@
+     # Process the similarity with inputs provided
+     DATA_FR = extractor(ARGS.path, ARGS.code, ARGS.test, ARGS.annot, ARGS.delta)
+     WRITER = pd.ExcelWriter('%s.xlsx' % os.path.join(ARGS.path, &quot;funcDefExtractResult&quot;), engine='xlsxwriter')
+-    DATA_FR.to_excel(WRITER, sheet_name=&quot;funcDefExtractResult&quot;)
++    DATA_FR.to_excel(WRITER, sheet_name=&quot;XXfuncDefExtractResultXX&quot;)
+     WRITER.save()
+ 
+</failure>
+			<system-out>    DATA_FR.to_excel(WRITER, sheet_name=&quot;funcDefExtractResult&quot;)</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="169" name="Mutant #229">
+			<system-out>            for i in range(0, (int(delta) * 2) + 1):</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="169" name="Mutant #230">
+			<system-out>            for i in range(0, (int(delta) * 2) + 1):</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="169" name="Mutant #231">
+			<system-out>            for i in range(0, (int(delta) * 2) + 1):</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="169" name="Mutant #232">
+			<system-out>            for i in range(0, (int(delta) * 2) + 1):</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="169" name="Mutant #233">
+			<system-out>            for i in range(0, (int(delta) * 2) + 1):</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="170" name="Mutant #234">
+			<system-out>                if num - (int(delta) + 1) + i &gt;= len(line_data):</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="170" name="Mutant #235">
+			<system-out>                if num - (int(delta) + 1) + i &gt;= len(line_data):</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="170" name="Mutant #236">
+			<system-out>                if num - (int(delta) + 1) + i &gt;= len(line_data):</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="170" name="Mutant #237">
+			<system-out>                if num - (int(delta) + 1) + i &gt;= len(line_data):</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="170" name="Mutant #238">
+			<system-out>                if num - (int(delta) + 1) + i &gt;= len(line_data):</system-out>
+		</testcase>
+		<testcase file="C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor\core_extractor.py" line="171" name="Mutant #239">
+			<system-out>                    break</system-out>
+		</testcase>
+	</testsuite>
+</testsuites>
+

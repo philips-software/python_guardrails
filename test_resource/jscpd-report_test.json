@@ -1,0 +1,117 @@
+{
+	"duplicates": [
+		{
+			"format": "python",
+			"lines": 6,
+			"fragment": "\r\n\r\n\r\nif __name__ == '__main__':\r\n    unittest.main()\r\n",
+			"tokens": 0,
+			"firstFile": {
+				"name": "test\\test_core_extractor.py",
+				"start": 110,
+				"end": 115,
+				"startLoc": {
+					"line": 110,
+					"column": 84
+				},
+				"endLoc": {
+					"line": 115,
+					"column": 1
+				}
+			},
+			"secondFile": {
+				"name": "test\\test_cmd_log.py",
+				"start": 88,
+				"end": 93,
+				"startLoc": {
+					"line": 88,
+					"column": 88
+				},
+				"endLoc": {
+					"line": 93,
+					"column": 1
+				}
+			}
+		}
+	],
+	"statistics": {
+		"detectionDate": "2020-03-22T05:56:15.266Z",
+		"formats": {
+			"python": {
+				"sources": {
+					"C:/Projects/PythonRepo/python_sample/FunctionDefExtractor/functiondefextractor/core_extractor.py": {
+						"lines": 219,
+						"sources": 1,
+						"clones": 0,
+						"duplicatedLines": 0,
+						"percentage": 0,
+						"newDuplicatedLines": 0,
+						"newClones": 0
+					},
+					"C:/Projects/PythonRepo/python_sample/FunctionDefExtractor/functiondefextractor/extractor_cmd.py": {
+						"lines": 75,
+						"sources": 1,
+						"clones": 0,
+						"duplicatedLines": 0,
+						"percentage": 0,
+						"newDuplicatedLines": 0,
+						"newClones": 0
+					},
+					"C:/Projects/PythonRepo/python_sample/FunctionDefExtractor/test/test_cmd_log.py": {
+						"lines": 93,
+						"sources": 1,
+						"clones": 1,
+						"duplicatedLines": 5,
+						"percentage": 5.38,
+						"newDuplicatedLines": 0,
+						"newClones": 0
+					},
+					"C:/Projects/PythonRepo/python_sample/FunctionDefExtractor/test/test_core_extractor.py": {
+						"lines": 115,
+						"sources": 1,
+						"clones": 1,
+						"duplicatedLines": 5,
+						"percentage": 4.35,
+						"newDuplicatedLines": 0,
+						"newClones": 0
+					},
+					"C:/Projects/PythonRepo/python_sample/FunctionDefExtractor/test/test_resource.py": {
+						"lines": 10,
+						"sources": 1,
+						"clones": 0,
+						"duplicatedLines": 0,
+						"percentage": 0,
+						"newDuplicatedLines": 0,
+						"newClones": 0
+					},
+					"C:/Projects/PythonRepo/python_sample/FunctionDefExtractor/test/__init__.py": {
+						"lines": 7,
+						"sources": 1,
+						"clones": 0,
+						"duplicatedLines": 0,
+						"percentage": 0,
+						"newDuplicatedLines": 0,
+						"newClones": 0
+					}
+				},
+				"total": {
+					"lines": 0,
+					"sources": 6,
+					"clones": 1,
+					"duplicatedLines": 5,
+					"percentage": 0.96,
+					"newDuplicatedLines": 0,
+					"newClones": 0
+				}
+			}
+		},
+		"total": {
+			"lines": 0,
+			"sources": 6,
+			"clones": 1,
+			"duplicatedLines": 5,
+			"percentage": 0.96,
+			"newDuplicatedLines": 0,
+			"newClones": 0
+		}
+	}
+}
