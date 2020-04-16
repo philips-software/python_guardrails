@@ -14,7 +14,7 @@ Technology stack
 
 Dependencies
 ------------
-`Python 3.7.3 `
+`Python 3.7.3`
 
 [packages]
 **************
