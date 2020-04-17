@@ -12,8 +12,6 @@ jobs:
       name: "static analysis 'pylint & JSCPD'"
       script:
         - pylint guardrails/ test/
-        - jscpd --min-tokens 20 --reporters "json" --mode "strict" --format "python" -o . .
-        - python3 test_resource/jscpd_parser.py --j 10 #Allowed duplication is 10% with 20 token size
 
     - stage: "Cyclomatic complexity"
       name: "cyclomatic complexity analysis with lizard"
