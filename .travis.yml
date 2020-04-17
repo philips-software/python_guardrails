@@ -11,8 +11,7 @@ jobs:
     - stage: "Static Analysis"
       name: "static analysis 'pylint & JSCPD'"
       script:
-        - pylint guardrails/ test/
-		#Add jscpd gate once it is working in travis
+        - pylint guardrails/ test/ #Add jscpd gate once it is working in travis
 
     - stage: "Cyclomatic complexity"
       name: "cyclomatic complexity analysis with lizard"
