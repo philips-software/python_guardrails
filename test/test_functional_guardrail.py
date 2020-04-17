@@ -101,7 +101,7 @@ class TestGuardrailFunctional(unittest.TestCase):
         cmd = "python {0} --p {1}".format(file_guardrails, file_ini)
         ini_path = os.path.abspath(os.path.join
                                    (os.path.dirname(__file__), os.pardir))
-        subprocess.call(cmd)
+        subprocess.call(cmd, shell=True)
         src = os.path.join(ini_path, "guardrails", "guardrails.log")
         dst = os.path.join(ini_path, "guardrails", "guardrail_test.log")
         copyfile(src, dst)

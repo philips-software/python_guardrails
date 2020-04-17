@@ -1,4 +1,5 @@
-""" This file does the  test of the guardrails """
+""" This file does the  test of the "Text similarity processor
+logging and commandline """
 import subprocess
 import unittest
 import xml.etree.ElementTree as ETree
@@ -9,15 +10,17 @@ from guardrails.guardrails import Guardails
 
 
 class TestGuardrails(unittest.TestCase):
-    """ Class to test the guardrails """
+    """ Class to test the logging and command line input feature """
 
-    # def tearDown(self):
-    #     """"Deletes the log files created."""
-    #     import os
-    #     ini_path = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
-    #     file_name = os.path.join(ini_path, "guardrails", "guardrails.log")
-    #     if os.path.exists(file_name):
-    #         open(file_name, 'w').close()
+    @classmethod
+    def tearDown(self):
+        """"Deletes the log files created."""
+        import os
+        ini_path = os.path.abspath(os.path.join
+                                   (os.path.dirname(__file__), os.pardir))
+        file_name = os.path.join(ini_path, "guardrails", "guardrails.log")
+        if os.path.exists(file_name):
+            open(file_name, 'w').close()
 
     @staticmethod
     def stub_globals(guardails_obj):
@@ -79,11 +82,21 @@ class TestGuardrails(unittest.TestCase):
         return Guardails(ini_path)
 
     @staticmethod
-    def check_output(loction, file_name):
-        with open(file_name, 'r') as f:
-            lines = f.read().splitlines()
-            last_line = lines[loction]
-            return last_line
+    def get_file_name(folder_name, file_name):
+        """Function to test file_name method"""
+        import os
+        ini_path = os.path.abspath(os.path.join
+                                   (os.path.dirname(__file__), os.pardir))
+        return os.path.join(ini_path, folder_name, file_name)
+
+    def get_log_data(self, line):
+        file_name = self.get_file_name("guardrails", "guardrails.log")
+        string = ""
+        file_variable = open(file_name)
+        all_lines_variable = file_variable.readlines()
+        string = all_lines_variable[-(line)]
+        string = string[0: 0:] + string[23 + 1::]
+        return string
 
     def test_list_to_str_folders(self):
         """Function to test list_to_str_folders method"""
@@ -114,7 +127,7 @@ class TestGuardrails(unittest.TestCase):
             ret_val = guardails_obj.call_subprocess("lshrs")
         except KeyError:
             pass
-        self.assertEqual(ret_val, 1)
+        self.assertNotEqual(ret_val, 0)
 
     def test_call_subprocess_noerror(self):
         """Function to test call_subprocess_noerror method"""
@@ -140,112 +153,80 @@ class TestGuardrails(unittest.TestCase):
         mock_subproc_call.return_value = False
         guardails_obj.guardrail_lint()
         self.assertTrue(mock_subproc_call.called)
-        # line = subprocess.check_output(['tail', '-1', file_name], shell=True)
-        line = self.check_output(-1, file_name)
-        print("************")
-        print(line)
+        line = self.get_log_data(1)
         self.assertTrue("Guardrail , passed Linting." in str(line))
         mock_subproc_call.return_value = True
         with patch('sys.exit') as exit_mock:
             guardails_obj.guardrail_lint()
-            # line = subprocess.check_output(['tail', '-2', file_name], shell=True)
-            line = self.check_output(-1, file_name)
-            print("************")
-            print(line)
+            line = self.get_log_data(1)
             self.assertTrue("Guardrail , failed Linting." in str(line))
             assert exit_mock
         self.assertTrue(mock_subproc_call.called)
 
-    @staticmethod
-    def get_file_name(folder_name, file_name):
-        """Function to test file_name method"""
-        import os
-        ini_path = os.path.abspath(os.path.join
-                                   (os.path.dirname(__file__), os.pardir))
-        return os.path.join(ini_path, folder_name, file_name)
-
     def test_validate_return(self):
         """Function to test validate_return method"""
-        file_name = self.get_file_name("guardrails", "guardrails.log")
         guardails_obj = self.get_guardrails_obj()
         with patch('sys.exit') as exit_mock:
             guardails_obj.validate_return(1, "test", True)
             assert exit_mock.called
-            # line = subprocess.check_output(['tail', '-1', file_name], shell=True)
-            line = self.check_output(-1, file_name)
-            print("***********************")
-            print(line)
-            print("*************************")
-            log_data = str(line).split(" ", 2)[2]
-            print(log_data)
-            assert log_data == "Guardrail , failed test."
+            line = self.get_log_data(1)
+            assert line == "Guardrail , failed test.\n"
 
     def test_validate_return_success(self):
         """Function to test validate_return_success method"""
-        file_name = self.get_file_name("guardrails", "guardrails.log")
         guardails_obj = self.get_guardrails_obj()
         with patch('sys.exit') as exit_mock:
             guardails_obj.validate_return(0, "test", False)
             assert not exit_mock.called
-            line = self.check_output(-1, file_name)
-            self.assertTrue("Guardrail task, passed test" in str(line))
+            line = self.get_log_data(1)
+            self.assertTrue("Guardrail task, passed test" in line)
 
     def test_check_pass_fail_success(self):
         """Function to test check_pass_fail_success method"""
-        file_name = self.get_file_name("guardrails", "guardrails.log")
         guardails_obj = self.get_guardrails_obj()
         with patch('sys.exit') as exit_mock:
             guardails_obj.check_pass_fail(10, 100, 10)
             assert not exit_mock.called
-            # line = subprocess.check_output(['tail', '-1', file_name], shell=True)
-            line = self.check_output(-1, file_name)
-            self.assertTrue("Guardrail gating, passed mutation" in str(line))
+            line = self.get_log_data(1)
+            self.assertTrue("Guardrail gating, passed mutation" in line)
 
     def test_check_pass_fail_failure(self):
         """Function to test check_pass_fail_failure method"""
-        file_name = self.get_file_name("guardrails", "guardrails.log")
         guardails_obj = self.get_guardrails_obj()
         with patch('sys.exit') as exit_mock:
             guardails_obj.check_pass_fail(10, 100, 1)
             assert exit_mock.called
-            # line = subprocess.check_output(['tail', '-1', file_name], shell=True)
-            line = self.check_output(-1, file_name)
-            self.assertTrue("Guardrail gating, failed mutation" in str(line))
+            line = self.get_log_data(1)
+            self.assertTrue("Guardrail gating, failed mutation" in line)
 
     def test_check_pass_fail_failure_total(self):
         """Function to test check_pass_fail_failure_total method"""
-        file_name = self.get_file_name("guardrails", "guardrails.log")
         guardails_obj = self.get_guardrails_obj()
         with patch('sys.exit') as exit_mock:
             guardails_obj.check_pass_fail(10, 0, 10)
             assert exit_mock.called
-            # line = subprocess.check_output(['tail', '-1', file_name], shell=True)
-            line = self.check_output(-1, file_name)
-            self.assertTrue("Guardrail gating, failed: mutation test did not run" in str(line))
+            line = self.get_log_data(1)
+            self.assertTrue("Guardrail gating, failed: mutation test did not run" in line)
 
     @mock.patch('subprocess.call', autospec=True)
     def test_guardrail_jscpd(self, mock_subproc_call):
         """Function to test guardrail_jscpd method"""
-        file_name = self.get_file_name("guardrails", "guardrails.log")
         guardails_obj = self.get_guardrails_obj()
         mock_subproc_call.return_value = False
         guardails_obj.parse_jscpd_report_json = self.return_jscpd_false
         guardails_obj.guardrail_jscpd()
         self.assertTrue(mock_subproc_call.called)
-        # line = subprocess.check_output(['tail', '-1', file_name], shell=True)
-        line = self.check_output(-1, file_name)
-        self.assertTrue("Guardrail task, passed Copy Paste Detection report generation" in str(line))
-        # line = subprocess.check_output(['tail', '-2', file_name], shell=True)
-        line = self.check_output(-2, file_name)
+        line = self.get_log_data(1)
+        self.assertTrue("Guardrail task, passed Copy Paste Detection report generation" in line)
+        line = self.get_log_data(2)
         val = r'command for sub process:jscpd --min-tokens 20  --ignore C:\Projects\PythonRepo\python_sample' \
               r'\FunctionDefExtractor\test  --max-lines 100000 --max-size 100mb --reporters "json" --mode "strict" ' \
               r'--format "python, java" -o'
-        self.assertTrue(str(val) in str(line))
+        self.assertTrue(str(val) in line)
 
     @mock.patch('subprocess.call', autospec=True)
     def test_guardrail_jscpd_fail(self, mock_subproc_call):
         """Function to test guardrail_jscpd_fail method"""
-        file_name = self.get_file_name("guardrails", "guardrails.log")
         guardails_obj = self.get_guardrails_obj()
         mock_subproc_call.return_value = True
         guardails_obj.parse_jscpd_report_json = self.return_jscpd_false
@@ -253,107 +234,90 @@ class TestGuardrails(unittest.TestCase):
             guardails_obj.guardrail_jscpd()
             self.assertTrue(mock_subproc_call.called)
             assert exit_mock.called
-            # line = subprocess.check_output(['tail', '-1', file_name], shell=True)
-            line = self.check_output(-1, file_name)
-            self.assertTrue("Guardrail task, failed Copy Paste Detection report generation" in str(line))
-            # line = subprocess.check_output(['tail', '-2', file_name], shell=True)
-            line = self.check_output(-2, file_name)
+            line = self.get_log_data(1)
+            self.assertTrue("Guardrail task, failed Copy Paste Detection report generation" in line)
+            line = self.get_log_data(2)
             val = r'command for sub process:jscpd --min-tokens 20  --ignore C:\Projects\PythonRepo\python_sample' \
                   r'\FunctionDefExtractor\test  --max-lines 100000 --max-size 100mb --reporters "json" --mode ' \
                   r'"strict" --format "python, java" -o'
-            self.assertTrue(str(val) in str(line))
+            self.assertTrue(str(val) in line)
 
     @mock.patch('subprocess.call', autospec=True)
     def test_guardrail_test(self, mock_subproc_call):
         """Function to test guardrail_test method"""
-        file_name = self.get_file_name("guardrails", "guardrails.log")
         guardails_obj = self.get_guardrails_obj()
         mock_subproc_call.return_value = False
         guardails_obj.guardrail_test()
         self.assertTrue(mock_subproc_call.called)
-        # line = subprocess.check_output(['tail', '-1', file_name], shell=True)
-        line = self.check_output(-1, file_name)
-        self.assertTrue("Guardrail task, passed Test execution and coverage generation" in str(line))
-        # line = subprocess.check_output(['tail', '-2', file_name], shell=True)
-        line = self.check_output(-2, file_name)
+        line = self.get_log_data(1)
+        self.assertTrue("Guardrail task, passed Test execution and coverage generation" in line)
+        line = self.get_log_data(2)
         val = r'mypython -m pytest C:\Projects\PythonRepo\python_sample\FunctionDefExtractor' \
               r' --cov-config=C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\.coveragerc ' \
               r'--cov-report "html" --cov=C:\Projects\PythonRepo\python_sample' \
               r'\FunctionDefExtractor\functiondefextractor'
-        self.assertTrue(str(val) in str(line))
+        self.assertTrue(str(val) in line)
 
     @mock.patch('subprocess.call', autospec=True)
     def test_guardrail_test_fail(self, mock_subproc_call):
         """Function to test guardrail_test_fail method"""
-        file_name = self.get_file_name("guardrails", "guardrails.log")
         guardails_obj = self.get_guardrails_obj()
         mock_subproc_call.return_value = True
         with patch('sys.exit') as exit_mock:
             guardails_obj.guardrail_test()
             self.assertTrue(mock_subproc_call.called)
             assert exit_mock.called
-            # line = subprocess.check_output(['tail', '-1', file_name], shell=True)
-            line = self.check_output(-1, file_name)
-            self.assertTrue("Guardrail task, failed Test execution and coverage generation" in str(line))
-            # line = subprocess.check_output(['tail', '-2', file_name], shell=True)
-            line = self.check_output(-2, file_name)
+            line = self.get_log_data(1)
+            self.assertTrue("Guardrail task, failed Test execution and coverage generation" in line)
+            line = self.get_log_data(2)
             val = r'mypython -m pytest C:\Projects\PythonRepo\python_sample\FunctionDefExtractor ' \
                   r'--cov-config=C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\.coveragerc ' \
                   r'--cov-report "html" --cov=C:\Projects\PythonRepo\python_sample' \
                   r'\FunctionDefExtractor\functiondefextractor'
-            self.assertTrue(str(val) in str(line))
+            self.assertTrue(str(val) in line)
 
     @mock.patch('subprocess.call', autospec=True)
     def test_guardrail_coverage(self, mock_subproc_call):
         """Function to test guardrail_coverage method"""
-        file_name = self.get_file_name("guardrails", "guardrails.log")
         guardails_obj = self.get_guardrails_obj()
         mock_subproc_call.return_value = False
         guardails_obj.guardrail_coverage()
         self.assertTrue(mock_subproc_call.called)
-        # line = subprocess.check_output(['tail', '-1', file_name], shell=True)
-        line = self.check_output(-1, file_name)
-        self.assertTrue("Guardrail , passed Coverage threshold" in str(line))
-        # line = subprocess.check_output(['tail', '-2', file_name], shell=True)
-        line = self.check_output(-2, file_name)
+        line = self.get_log_data(1)
+        self.assertTrue("Guardrail , passed Coverage threshold" in line)
+        line = self.get_log_data(2)
         val = r'mypython -m coverage report --fail-under=85'
-        self.assertTrue(str(val) in str(line))
+        self.assertTrue(str(val) in line)
 
     @mock.patch('subprocess.call', autospec=True)
     def test_guardrail_coverage_fail(self, mock_subproc_call):
         """Function to test guardrail_coverage_fail method"""
-        file_name = self.get_file_name("guardrails", "guardrails.log")
         guardails_obj = self.get_guardrails_obj()
         mock_subproc_call.return_value = True
         with patch('sys.exit') as exit_mock:
             guardails_obj.guardrail_coverage()
             self.assertTrue(mock_subproc_call.called)
             assert exit_mock.called
-            # line = subprocess.check_output(['tail', '-1', file_name], shell=True)
-            line = self.check_output(-1, file_name)
-            self.assertTrue("Guardrail , failed Coverage threshold" in str(line))
-            # line = subprocess.check_output(['tail', '-2', file_name], shell=True)
-            line = self.check_output(-2, file_name)
+            line = self.get_log_data(1)
+            self.assertTrue("Guardrail , failed Coverage threshold" in line)
+            line = self.get_log_data(2)
             val = r'mypython -m coverage report --fail-under=85'
-            self.assertTrue(str(val) in str(line))
+            self.assertTrue(str(val) in line)
 
     @mock.patch('subprocess.call', autospec=True)
     def test_guardrail_deadcode(self, mock_subproc_call):
         """Function to test guardrail_deadcode method"""
-        file_name = self.get_file_name("guardrails", "guardrails.log")
         guardails_obj = self.get_guardrails_obj()
         mock_subproc_call.return_value = False
         guardails_obj.guardrail_deadcode()
         self.assertTrue(mock_subproc_call.called)
-        # line = subprocess.check_output(['tail', '-1', file_name], shell=True)
-        line = self.check_output(-1, file_name)
-        self.assertTrue("Guardrail , passed Dead code detection" in str(line))
-        # line = subprocess.check_output(['tail', '-2', file_name], shell=True)
-        line = self.check_output(-2, file_name)
+        line = self.get_log_data(1)
+        self.assertTrue("Guardrail , passed Dead code detection" in line)
+        line = self.get_log_data(2)
         val = r'mypython -m vulture C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor ' \
               r'C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\test  --exclude C:\Projects\PythonRepo' \
-              r'\python_sample\FunctionDefExtractor\test >C:\Projects\PythonRepo\REPORT\deadcode.txt'
-        self.assertTrue(str(val) in str(line))
+              r'\python_sample\FunctionDefExtractor\test >C:\Projects\PythonRepo\REPORT'
+        self.assertTrue(str(val) in line)
 
     @mock.patch('subprocess.call', autospec=True)
     def test_guardrail_deadcode_fail(self, mock_subproc_call):
@@ -365,16 +329,14 @@ class TestGuardrails(unittest.TestCase):
             guardails_obj.guardrail_deadcode()
             self.assertTrue(mock_subproc_call.called)
             assert exit_mock.called
-            # line = subprocess.check_output(['tail', '-1', file_name], shell=True)
-            line = self.check_output(-1, file_name)
-            self.assertTrue("Guardrail , failed Dead code detection" in str(line))
-            # line = subprocess.check_output(['tail', '-2', file_name], shell=True)
-            line = self.check_output(-2, file_name)
+            line = self.get_log_data(1)
+            self.assertTrue("Guardrail , failed Dead code detection" in line)
+            line = self.get_log_data(2)
             val = r'mypython -m vulture C:\Projects\PythonRepo\python_sample\FunctionDefExtractor' \
                   r'\functiondefextractor C:\Projects\PythonRepo\python_sample\FunctionDefExtractor' \
                   r'\test  --exclude C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\test >C:' \
-                  r'\Projects\PythonRepo\REPORT\deadcode.txt'
-            self.assertTrue(str(val) in str(line))
+                  r'\Projects\PythonRepo\REPORT'
+            self.assertTrue(str(val) in line)
 
     def test_parse_jscpd_report_json(self):
         """Function to test parse_jscpd_report_json method"""
@@ -388,19 +350,14 @@ class TestGuardrails(unittest.TestCase):
             file_name = self.get_file_name("test_resource", "jscpd-report_test _error.json")
             guardails_obj.parse_jscpd_report_json(0, file_name)
             assert exit_mock.called
-            file_name = self.get_file_name("guardrails", "guardrails.log")
-            # line = subprocess.check_output(['tail', '-3', file_name], shell=True)
-            line = self.check_output(-3, file_name)
-            self.assertTrue("Guardrail gating, failed jscpd." in str(line))
-            # line = subprocess.check_output(['tail', '-4', file_name], shell=True)
-            line = self.check_output(-4, file_name)
-            self.assertTrue("Guardrail gating passed jscpd" in str(line))
-            # line = subprocess.check_output(['tail', '-2', file_name], shell=True)
-            line = self.check_output(-2, file_name)
-            self.assertTrue("jscpd report not correctly generated" in str(line))
-            # line = subprocess.check_output(['tail', '-1', file_name], shell=True)
-            line = self.check_output(-1, file_name)
-            self.assertTrue("jscpd report not generated" in str(line))
+            line = self.get_log_data(3)
+            self.assertTrue("Guardrail gating, failed jscpd." in line)
+            line = self.get_log_data(4)
+            self.assertTrue("Guardrail gating passed jscpd" in line)
+            line = self.get_log_data(2)
+            self.assertTrue("jscpd report not correctly generated" in line)
+            line = self.get_log_data(1)
+            self.assertTrue("jscpd report not generated" in line)
 
     def test_parse_cyclo_report_xml(self):
         """Function to test parse_cyclo_report_xml method"""
@@ -412,18 +369,15 @@ class TestGuardrails(unittest.TestCase):
         file_name = self.get_file_name("test_resourc", "CC.xml")
         with patch('sys.exit') as exit_mock:
             guardails_obj.parse_cyclo_report_xml(file_name)
+            line = self.get_log_data(1)
+            self.assertTrue("cc.xml report file path" in line)
             file_name = self.get_file_name("test_resource", "CC_test.xml")
             guardails_obj.parse_cyclo_report_xml(file_name)
-            file_name = self.get_file_name("test_resource", "CC_test_none.xml")
+            file_name = self.get_file_name("test_resource", "CC_test_None.xml")
             guardails_obj.parse_cyclo_report_xml(file_name)
+            line = self.get_log_data(1)
+            self.assertTrue("tags required are not found in cc.xml report file path" in line)
             assert exit_mock.called
-            file_name = self.get_file_name("guardrails", "guardrails.log")
-            # line = subprocess.check_output(['tail', '-1', file_name], shell=True)
-            line = self.check_output(-1, file_name)
-            self.assertTrue("cc.xml report file path" in str(line))
-            # line = subprocess.check_output(['tail', '-2', file_name], shell=True)
-            line = self.check_output(-1, file_name)
-            self.assertTrue("tags required are not found in cc.xml report file path" in str(line))
 
     def test_get_all_func_cnn(self):
         """Function to test get_all_func_cnn method"""
@@ -454,14 +408,12 @@ class TestGuardrails(unittest.TestCase):
                     guardails_obj.get_all_func_cnn(functions)
             assert exit_mock.called
             file_name = self.get_file_name("guardrails", "guardrails.log")
-            # line = subprocess.check_output(['tail', '-2', file_name], shell=True)
-            line = self.check_output(-2, file_name)
+            line = self.get_log_data(2)
             self.assertTrue(
-                "Guardrail unable to find the tags item/value/name in the report " in str(line))
-            # line = subprocess.check_output(['tail', '-1', file_name], shell=True)
-            line = self.check_output(-1, file_name)
+                "Guardrail unable to find the tags item/value/name in the report " in line)
+            line = self.get_log_data(1)
             self.assertTrue(
-                "Guardrail unable to find the tags item/value/name in the report file " in str(line))
+                "Guardrail unable to find the tags item/value/name in the report file " in line)
 
     def test_get_index_cnn(self):
         """Function to test get_index_cnn method"""
@@ -479,10 +431,8 @@ class TestGuardrails(unittest.TestCase):
                 if functions.attrib['type'] == "Function":
                     guardails_obj.get_index_cnn(functions)
             assert exit_mock.called
-            file_name = self.get_file_name("guardrails", "guardrails.log")
-            # line = subprocess.check_output(['tail', '-1', file_name], shell=True)
-            line = self.check_output(-1, file_name)
-            self.assertTrue("Guardrail unable to find the tag CCN in the report " in str(line))
+            line = self.get_log_data(1)
+            self.assertTrue("Guardrail unable to find the tag CCN in the report " in line)
 
     def test_parse_mutmut_report_xml(self):
         """Function to test parse_mutmut_report_xml method"""
@@ -490,17 +440,15 @@ class TestGuardrails(unittest.TestCase):
         guardails_obj = self.get_guardrails_obj()
         guardails_obj.parse_mutmut_report_xml(50, file_name)
         file_name = self.get_file_name("guardrails", "guardrails.log")
-        # line = subprocess.check_output(['tail', '-1', file_name], shell=True)
-        line = self.check_output(-1, file_name)
+        line = self.get_log_data(1)
         self.assertTrue("Guardrail gating, passed mutation" in str(line))
         file_name = self.get_file_name("test_resourc", "mutmut.xml")
         with patch('sys.exit') as exit_mock:
             guardails_obj.parse_mutmut_report_xml(50, file_name)
             assert exit_mock.called
             file_name = self.get_file_name("guardrails", "guardrails.log")
-            # line = subprocess.check_output(['tail', '-1', file_name], shell=True)
-            line = self.check_output(-1, file_name)
-            self.assertTrue("mutmut.xml report file path cound not be found" in str(line))
+            line = self.get_log_data(1)
+            self.assertTrue("mutmut.xml report file path cound not be found" in line)
 
     @mock.patch('subprocess.call')
     def test_guardrail_mutation(self, mock_subproc_call):
@@ -512,15 +460,13 @@ class TestGuardrails(unittest.TestCase):
         mock_subproc_call.return_value = False
         guardails_obj.guardrail_mutation()
         self.assertTrue(mock_subproc_call.called)
-        # line = subprocess.check_output(['tail', '-1', file_name], shell=True)
-        line = self.check_output(-1, file_name)
-        self.assertTrue("Guardrail task, passed Mutation testing report generation." in str(line))
+        line = self.get_log_data(1)
+        self.assertTrue("Guardrail task, passed Mutation testing report generation." in line)
         mock_subproc_call.return_value = True
         with patch('sys.exit') as exit_mock:
             guardails_obj.guardrail_mutation()
-            # line = subprocess.check_output(['tail', '-2', file_name], shell=True)
-            line = self.check_output(-1, file_name)
-            self.assertTrue("Guardrail task, failed Mutation testing " in str(line))
+            line = self.get_log_data(1)
+            self.assertTrue("Guardrail task, failed Mutation testing " in line)
             assert exit_mock
 
     @mock.patch('subprocess.call', autospec=True)
@@ -537,15 +483,15 @@ class TestGuardrails(unittest.TestCase):
         mock_subproc_call.return_value = False
         guardails_obj.guardrail_cyclomatic_complexity()
         self.assertTrue(mock_subproc_call.called)
-        # line = subprocess.check_output(['tail', '-1', file_name], shell=True)
-        line = self.check_output(-1, file_name)
-        self.assertTrue("Guardrail , passed Cyclomatic complexity" in str(line))
+        line = self.get_log_data(1)
+        print(line)
+        # assert line == " Guardrail , passed Cyclomatic complexity."
+        self.assertTrue("Guardrail , passed Cyclomatic complexity" in line)
         mock_subproc_call.return_value = True
         with patch('sys.exit') as exit_mock:
             guardails_obj.guardrail_cyclomatic_complexity()
-            # line = subprocess.check_output(['tail', '-2', file_name], shell=True)
-            line = self.check_output(-2, file_name)
-            self.assertTrue("Guardrail task, failed Cyclomating complexity generation" in str(line))
+            line = self.get_log_data(2)
+            self.assertTrue("Guardrail task, failed Cyclomating complexity generation" in line)
             assert exit_mock
 
     @mock.patch('subprocess.call')
@@ -556,7 +502,6 @@ class TestGuardrails(unittest.TestCase):
         guardails_obj = self.get_guardrails_obj()
         process_sub_mock = mock.Mock()
         patcher_exist = mock.patch('os.path.exists')
-
         mock_thing = patcher_exist.start()
         mock_thing.return_value = True
         patcher_isdir = mock.patch('os.path.isdir')
