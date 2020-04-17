@@ -1,28 +1,28 @@
 #####Guardrails for python programs#####
 Started Linting gate
-list_to_str_folders function returned:$$$\test_resource\sample_project\source $$$\test_resource\sample_project\test
-command for sub process:python -m pylint   --rcfile $$$\test_resource\sample_project\.pylintrc $$$\test_resource\sample_project\source $$$\test_resource\sample_project\test >$$$\test_resource\sample_project\sample_report\linting_Report.txt
+list_to_str_folders function returned:$$$/test_resource/sample_project/source $$$/test_resource/sample_project/test
+command for sub process:python -m pylint   --rcfile $$$/test_resource/sample_project/.pylintrc $$$/test_resource/sample_project/source $$$/test_resource/sample_project/test >$$$/test_resource/sample_project/sample_report/linting_Report.txt
 Guardrail , passed Linting.
 Started jscpd gate
-list_to_str_folders function returned:$$$\test_resource\sample_project\source $$$\test_resource\sample_project\test
-command for sub process:jscpd --min-tokens 20    --max-lines 100000 --max-size 100mb --reporters "json" --mode "strict" --format "python" -o $$$\test_resource\sample_project\sample_report $$$\test_resource\sample_project\source $$$\test_resource\sample_project\test
+list_to_str_folders function returned:$$$/test_resource/sample_project/source $$$/test_resource/sample_project/test
+command for sub process:jscpd --min-tokens 20    --max-lines 100000 --max-size 100mb --reporters "json" --mode "strict" --format "python" -o $$$/test_resource/sample_project/sample_report $$$/test_resource/sample_project/source $$$/test_resource/sample_project/test
 Guardrail task, passed Copy Paste Detection report generation .
 Guardrail gating passed jscpd
 Started test gate
-list_to_str_folders function returned:$$$\test_resource\sample_project\source
-command for sub process:python -m pytest $$$\test_resource\sample_project  --cov-report "html" --cov=$$$\test_resource\sample_project\source
+list_to_str_folders function returned:$$$/test_resource/sample_project/source
+command for sub process:python -m pytest $$$/test_resource/sample_project  --cov-report "html" --cov=$$$/test_resource/sample_project/source
 Guardrail task, passed Test execution and coverage generation.
 Started coverage gate
 command for sub process:python -m coverage report --fail-under=85
 Guardrail , passed Coverage threshold.
 Started moving coverage file
 Started deadcode gate
-list_to_str_folders function returned:$$$\test_resource\sample_project\source $$$\test_resource\sample_project\test
-command for sub process:python -m vulture $$$\test_resource\sample_project\source $$$\test_resource\sample_project\test   >$$$\test_resource\sample_project\sample_report\deadcode.txt
+list_to_str_folders function returned:$$$/test_resource/sample_project/source $$$/test_resource/sample_project/test
+command for sub process:python -m vulture $$$/test_resource/sample_project/source $$$/test_resource/sample_project/test   >$$$/test_resource/sample_project/sample_report/deadcode.txt
 Guardrail , passed Dead code detection .
 Started cyclomatic complexity gate
-list_to_str_folders function returned:$$$\test_resource\sample_project\source
-command for sub process:python -m lizard $$$\test_resource\sample_project\source  -X > $$$\test_resource\sample_project\sample_report\CC.xml
+list_to_str_folders function returned:$$$/test_resource/sample_project/source
+command for sub process:python -m lizard $$$/test_resource/sample_project/source  -X > $$$/test_resource/sample_project/sample_report/CC.xml
 Guardrail task, passed Cyclomating complexity generation .
 successfully found functions with CNN
 Guardrail , passed Cyclomatic complexity.
