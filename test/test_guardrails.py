@@ -163,6 +163,7 @@ class TestGuardrails(unittest.TestCase):
             print(line)
             print("*************************")
             log_data = str(line).split(" ", 2)[2][:-5]
+            print(log_data)
             assert log_data == "Guardrail , failed test."
 
     # def test_validate_return_success(self):
