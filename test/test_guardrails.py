@@ -77,7 +77,12 @@ class TestGuardrails(unittest.TestCase):
                                    (os.path.dirname(__file__), os.pardir))
         ini_path = os.path.join(ini_path, "test_resource", "guardrail.ini")
         return Guardails(ini_path)
-
+    @staticmethod
+    def check_output(loction, file_name):
+        with open(file_name, 'r') as f:
+            lines = f.read().splitlines()
+            last_line = lines[loction]
+            return last_line
     # def test_list_to_str_folders(self):
     #     """Function to test list_to_str_folders method"""
     #     guardails_obj = self.get_guardrails_obj()
@@ -158,23 +163,24 @@ class TestGuardrails(unittest.TestCase):
         with patch('sys.exit') as exit_mock:
             guardails_obj.validate_return(1, "test", True)
             assert exit_mock.called
-            line = subprocess.check_output(['tail', '-1', file_name], shell=True)
+            # line = subprocess.check_output(['tail', '-1', file_name], shell=True)
+            line = self.check_output(-1, file_name)
             print("***********************")
             print(line)
             print("*************************")
-            log_data = str(line).split(" ", 2)[2][:-5]
+            log_data = str(line).split(" ", 2)[2]
             print(log_data)
             assert log_data == "Guardrail , failed test."
 
-    # def test_validate_return_success(self):
-    #     """Function to test validate_return_success method"""
-    #     file_name = self.get_file_name("guardrails", "guardrails.log")
-    #     guardails_obj = self.get_guardrails_obj()
-    #     with patch('sys.exit') as exit_mock:
-    #         guardails_obj.validate_return(0, "test", False)
-    #         assert not exit_mock.called
-    #         line = subprocess.check_output(['tail', '-1', file_name], shell=True)
-    #         self.assertTrue("Guardrail task, passed test" in str(line))
+    def test_validate_return_success(self):
+        """Function to test validate_return_success method"""
+        file_name = self.get_file_name("guardrails", "guardrails.log")
+        guardails_obj = self.get_guardrails_obj()
+        with patch('sys.exit') as exit_mock:
+            guardails_obj.validate_return(0, "test", False)
+            assert not exit_mock.called
+            line = self.check_output(-1, file_name)
+            self.assertTrue("Guardrail task, passed test" in str(line))
     #
     # def test_check_pass_fail_success(self):
     #     """Function to test check_pass_fail_success method"""
