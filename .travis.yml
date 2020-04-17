@@ -17,7 +17,7 @@ jobs:
       name: "cyclomatic complexity analysis with lizard"
       script:
           - python3 -m lizard guardrails -X> CC.xml
-          - python3 test_resource\cyclo_gate.py --c 10 #Allowed cyclomatic complexity is less than 10
+          - python3 test_resource/cyclo_gate.py --c 10 #Allowed cyclomatic complexity is less than 10
 
     - stage: "Dead Code"
       name: "Dead code analysis with  with vulture"
