@@ -12,6 +12,4 @@ jobs:
       name: "Unit and functional test with coverage"
       script:
         - python3 -m pytest test -v
-        - pytest --cov-config=.coveragerc --cov=guardrails
-        - coverage report --fail-under=90 #Coverage should be above 90%
-      after_success: codecov
+
