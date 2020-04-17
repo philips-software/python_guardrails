@@ -1,6 +1,5 @@
 """ This file does the  test of the "Text similarity processor
 logging and commandline """
-import subprocess
 import unittest
 import xml.etree.ElementTree as ETree
 from unittest import mock
@@ -12,7 +11,6 @@ from guardrails.guardrails import Guardails
 class TestGuardrails(unittest.TestCase):
     """ Class to test the logging and command line input feature """
 
-    @classmethod
     def tearDown(self):
         """"Deletes the log files created."""
         import os
@@ -90,6 +88,7 @@ class TestGuardrails(unittest.TestCase):
         return os.path.join(ini_path, folder_name, file_name)
 
     def get_log_data(self, line):
+        """ function to get the line requested from log data"""
         file_name = self.get_file_name("guardrails", "guardrails.log")
         string = ""
         file_variable = open(file_name)
@@ -149,7 +148,6 @@ class TestGuardrails(unittest.TestCase):
     def test_guardrail_lint(self, mock_subproc_call):
         """Function to test guardrail_lint method"""
         guardails_obj = self.get_guardrails_obj()
-        file_name = self.get_file_name("guardrails", "guardrails.log")
         mock_subproc_call.return_value = False
         guardails_obj.guardrail_lint()
         self.assertTrue(mock_subproc_call.called)
@@ -322,7 +320,6 @@ class TestGuardrails(unittest.TestCase):
     @mock.patch('subprocess.call', autospec=True)
     def test_guardrail_deadcode_fail(self, mock_subproc_call):
         """Function to test guardrail_deadcode_fail method"""
-        file_name = self.get_file_name("guardrails", "guardrails.log")
         guardails_obj = self.get_guardrails_obj()
         mock_subproc_call.return_value = True
         with patch('sys.exit') as exit_mock:
@@ -453,7 +450,6 @@ class TestGuardrails(unittest.TestCase):
     @mock.patch('subprocess.call')
     def test_guardrail_mutation(self, mock_subproc_call):
         """Function to test guardrail_mutation method"""
-        file_name = self.get_file_name("guardrails", "guardrails.log")
         guardails_obj = self.get_guardrails_obj()
         guardails_obj.parse_mutmut_report_xml = Mock()
         guardails_obj.parse_mutmut_report_xml.return_value = None
@@ -472,7 +468,6 @@ class TestGuardrails(unittest.TestCase):
     @mock.patch('subprocess.call', autospec=True)
     def test_guardrail_cyclomatic_complexity(self, mock_subproc_call):
         """Function to test guardrail_cyclomatic_complexity method"""
-        file_name = self.get_file_name("guardrails", "guardrails.log")
         guardails_obj = self.get_guardrails_obj()
         guardails_obj.parse_cyclo_report_xml = Mock()
         guardails_obj.parse_cyclo_report_xml.return_value = {
