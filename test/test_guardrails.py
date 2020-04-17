@@ -143,13 +143,13 @@ class TestGuardrails(unittest.TestCase):
     #         assert exit_mock
     #     self.assertTrue(mock_subproc_call.called)
     #
-    # @staticmethod
-    # def get_file_name(folder_name, file_name):
-    #     """Function to test file_name method"""
-    #     import os
-    #     ini_path = os.path.abspath(os.path.join
-    #                                (os.path.dirname(__file__), os.pardir))
-    #     return os.path.join(ini_path, folder_name, file_name)
+    @staticmethod
+    def get_file_name(folder_name, file_name):
+        """Function to test file_name method"""
+        import os
+        ini_path = os.path.abspath(os.path.join
+                                   (os.path.dirname(__file__), os.pardir))
+        return os.path.join(ini_path, folder_name, file_name)
 
     def test_validate_return(self):
         """Function to test validate_return method"""
@@ -159,6 +159,9 @@ class TestGuardrails(unittest.TestCase):
             guardails_obj.validate_return(1, "test", True)
             assert exit_mock.called
             line = subprocess.check_output(['tail', '-1', file_name], shell=True)
+            print("***********************")
+            print(line)
+            print("*************************")
             log_data = str(line).split(" ", 2)[2][:-5]
             assert log_data == "Guardrail , failed test."
 
