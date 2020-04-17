@@ -34,7 +34,7 @@ jobs:
     - stage: "Mutation Tests"
       name: "mutation testing using mutmut"
       script:
-        - mutmut  run || true > mutmut.log
+        - mutmut --swallow-output run || true > mutmut.log
         - mutmut junitxml --suspicious-policy=ignore --untested-policy=ignore > mutmut.xml
         - python3 test_resource/mutmut_parse.py --m 20 #Mutation (failure+disables+error) allowed 20% of total mutants
 
