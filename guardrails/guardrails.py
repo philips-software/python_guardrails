@@ -87,7 +87,7 @@ class Guardails(GuardrailGlobals):
           guardrail (bool): identifier whether a process or guardrail gate.
 
         Returns:
-        sub-process return value. TODO
+        sub-process return value.
         """
         process = "" if guardrail else "task"
         if val:

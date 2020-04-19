@@ -4,6 +4,12 @@
     <list default="true" id="cac2284c-c7ef-456c-a7ef-1fc1fafceadb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guardrail.ini" beforeDir="false" afterPath="$PROJECT_DIR$/guardrail.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guardrails/guardrails.py" beforeDir="false" afterPath="$PROJECT_DIR$/guardrails/guardrails.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_functional_guardrail.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_functional_guardrail.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_guardrail_globals.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_guardrail_globals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_guardrails.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_guardrails.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -7,7 +7,7 @@ with open('requirements.txt') as f:
     required = f.read().splitlines()
 
 setuptools.setup(
-    name="guardrails",
+    name="PythonGuardrails",
     version="0.0.1",
     author="Brijesh",
     author_email="brijesh.krishnank@philips.com",
@@ -15,7 +15,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/bkk003/FunctionDefExtractor",
-    packages=setuptools.find_packages(include=['guardrails'], exclude=['test', '*.test', '*.test.*']),
+    packages=setuptools.find_packages(include=['guardrails'], exclude=['test']),
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

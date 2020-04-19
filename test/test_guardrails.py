@@ -436,14 +436,12 @@ class TestGuardrails(unittest.TestCase):
         file_name = self.get_file_name("test_resource", "mutmut.xml")
         guardails_obj = self.get_guardrails_obj()
         guardails_obj.parse_mutmut_report_xml(50, file_name)
-        file_name = self.get_file_name("guardrails", "guardrails.log")
         line = self.get_log_data(1)
         self.assertTrue("Guardrail gating, passed mutation" in str(line))
         file_name = self.get_file_name("test_resourc", "mutmut.xml")
         with patch('sys.exit') as exit_mock:
             guardails_obj.parse_mutmut_report_xml(50, file_name)
             assert exit_mock.called
-            file_name = self.get_file_name("guardrails", "guardrails.log")
             line = self.get_log_data(1)
             self.assertTrue("mutmut.xml report file path cound not be found" in line)
 

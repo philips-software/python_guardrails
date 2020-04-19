@@ -1,5 +1,4 @@
-""" This file does the  test of the "guardrails_globals """
-
+"""Koninklijke Philips N.V., 2019 - 2020. All rights reserved."""
 import unittest
 from unittest.mock import MagicMock
 from guardrails.guardrail_globals import GuardrailGlobals
@@ -114,7 +113,6 @@ class TestGuardrailGlobal(unittest.TestCase):
     def test_init(self):
         """Function to test init method"""
         global_obj = GuardrailGlobals()
-        # self.assertEqual(global_obj.config, None)
         self.assertEqual(global_obj.src_folder, None)
         self.assertEqual(global_obj.test_folder, None)
         self.assertEqual(global_obj.pytest, None)
@@ -147,7 +145,6 @@ class TestGuardrailGlobal(unittest.TestCase):
         ini_path = os.path.join(ini_path, "test_resource", "guardrail.ini")
         global_obj = GuardrailGlobals()
         global_obj.set_all(ini_path)
-        # self.assertEqual(global_obj.config, None)
         self.assertEqual(global_obj.src_folder,
                          r"C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor")
         self.assertEqual(global_obj.test_folder, r"C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\test")
