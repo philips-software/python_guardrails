@@ -4,7 +4,7 @@ Guardrails for python projects
 
 What is the project intented to solve?
 -------------------------------------
-Project will help to consolidate clean coding guardrails in a single call which consolidates (linting, Copy paste
+Project will help to consolidate clean coding guardrails in a single call which consolidates (linting, copy paste
  detection, Dead code, Test coverage, Cyclomatic complexity, Mutation testing)
 
 Technology stack
