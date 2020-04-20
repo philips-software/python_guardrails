@@ -7,6 +7,8 @@ What is the project intented to solve?
 Project will help to consolidate clean coding guardrails in a single call which consolidates (linting, copy paste
  detection, Dead code, Test coverage, Cyclomatic complexity, Mutation testing)
 
+It is a Quality At Desk (Q@D) initiative,
+
 Technology stack
 ---------------
 1. Python with few python packages
