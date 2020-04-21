@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.com/philips-software/python_guardrails.svg?branch=master)](https://travis-ci.com/philips-software/python_guardrails)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![codecov](https://codecov.io/gh/philips-software/python_guardrails/branch/master/graph/badge.svg)](https://codecov.io/gh/philips-software/python_guardrails)
 
 Guardrails for python projects
 =============================
