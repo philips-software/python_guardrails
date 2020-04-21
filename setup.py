@@ -33,7 +33,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/philips-software/python_guardrails",
-    packages=setuptools.find_packages(include=['guardrails'], exclude=['test']),
+    packages=setuptools.find_packages(include=['guardrails'], exclude=['test', '*.test', '*.test.*']),
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

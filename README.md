@@ -7,10 +7,9 @@ Guardrails for python projects
 
 What is the project intented to solve?
 -------------------------------------
-Project will help to consolidate clean coding guardrails in a single call which consolidates (linting, copy paste
+Project will help to consolidate clean coding practices at the developers desk by a single call which consolidates
+ (linting, copy paste
  detection, Dead code, Test coverage, Cyclomatic complexity, Mutation testing)
-
-It is a Quality At Desk (Q@D) initiative,
 
 Technology stack
 ---------------
@@ -19,10 +18,13 @@ Technology stack
 
 Dependencies
 ------------
-`Python 3.7.3`
+```
+Python 3.7.3
+NodeJS 10
+```
 
 [packages]
-**************
+
 ```
 pip
 
@@ -93,7 +95,7 @@ dead_code_ignore = C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\tes
 programming_language = python, java
 
 [options]
-# option can be either trur or false
+# option can be either true or false
 linting=true
 cpd=true
 coverage=true
@@ -105,6 +107,73 @@ cyclomatic_complexity=true
 ```
 python -m guardrails.guardrails --p path\to\guardrail.ini #ini file created for respective project
 ```
+Sample execution report
+----------------------
+```
+#####Guardrails for python programs#####
+Passed linting gate
+====================================
+Execution Time: 111.103ms
+Passed JSCPD gating
+====================================
+================================================= test session starts =================================================
+platform win32 -- Python 3.7.3, pytest-4.6.9, py-1.8.0, pluggy-0.12.0
+rootdir: C:\public_repo\python_guardrails
+plugins: allure-pytest-2.8.5, cov-2.7.1, html-2.0.1, metadata-1.8.0, pylint-0.14.1
+collected 1 item
+
+test\test_sample.py .                                                                                            [100%]
+
+----------- coverage: platform win32, python 3.7.3-final-0 -----------
+Coverage HTML written to dir Sample_proj_cov
+
+
+============================================== 1 passed in 0.19 seconds ===============================================
+Passed testing using pytest
+====================================
+Name                 Stmts   Miss  Cover
+----------------------------------------
+source\__init__.py       0      0   100%
+source\sample.py         3      0   100%
+----------------------------------------
+TOTAL                    3      0   100%
+Passed test coverage gating
+====================================
+
+- Mutation testing starting -
+
+These are the steps:
+1. A full test suite run will be made to make sure we
+   can run the tests successfully and we know how long
+   it takes (to detect infinite loops for example)
+2. Mutants will be generated and checked
+
+Results are stored in .mutmut-cache.
+Print found mutants with `mutmut results`.
+
+Legend for output:
+🎉 Killed mutants.   The goal is for everything to end up in this bucket.
+⏰ Timeout.          Test suite took 10 times as long as the baseline so were killed.
+🤔 Suspicious.       Tests took a long time, but not long enough to be fatal.
+🙁 Survived.         This means your tests needs to be expanded.
+
+mutmut cache is out of date, clearing it...
+1. Running tests without mutations
+⠇ Running... Done
+
+2. Checking mutants
+⠹ 2/2  🎉 2  ⏰ 0  🤔 0  🙁 0
+Passed mutation testing gate
+====================================
+Passed Dead code gating
+====================================
+Passed Cyclomatic complexity gating
+====================================
+```
+Report & Log
+-----------
+- Report will be collected at the `report_folder` folder mentioned in the guardrail.ini file
+- Log file will be generated inside the guardrails package installation with name `guardrails.log`
 
 Contact / Getting help
 ----------------------
