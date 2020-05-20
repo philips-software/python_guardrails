@@ -10,10 +10,7 @@ def create_parser(args):
     jscpd_parser = argparse.ArgumentParser(description='jscpd Parser')
 
     # Add the arguments
-    jscpd_parser.add_argument('--json',
-                            metavar='--j',
-                            type=int,
-                            help='jscpd benchmark')
+    jscpd_parser.add_argument('--json', metavar='--j', type=int, help='jscpd benchmark')
     return jscpd_parser.parse_args(args)
 
 
@@ -31,7 +28,6 @@ def parse_jscpd_report_json(duplicate_limit):
 
 
 if __name__ == '__main__':
-    """ Entry function for jscpd parser"""
     # Execute the parse_args() method
     ARGS = create_parser(sys.argv[1:])
     # Process the cosine with inputs provided
