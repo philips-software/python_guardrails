@@ -6,7 +6,7 @@ cache: pip
 install:
   - pip3 install -r requirements.txt
   - nvm install 10
-  - npm install -g jscpd
+  - npm install -g jscpd@3.2.1
 jobs:
   include:
     - stage: "Static Analysis"
