@@ -7,6 +7,7 @@ install:
   - pip3 install -r requirements.txt
   - nvm install 10
   - npm install -g jscpd@3.2.1
+  
 jobs:
   include:
     - stage: "Static Analysis"
@@ -37,7 +38,7 @@ jobs:
     - stage: "Mutation Tests"
       name: "mutation testing using mutmut"
       script:
-        - mutmut run > mutmut.log || true
+        - travis_wait 30 mutmut run > mutmut.log || true
         - mutmut junitxml --suspicious-policy=ignore --untested-policy=ignore > mutmut.xml
         - python3 test_resource/mutmut_parse.py --m 20 #Mutation (failure+disables+error) allowed 20% of total mutants
 
