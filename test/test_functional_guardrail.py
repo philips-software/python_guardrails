@@ -28,7 +28,7 @@ class TestGuardrailFunctional(unittest.TestCase):
         shutil.rmtree(file_name)
         os.chdir(CURR_DIR)
 
-    #@unittest.skipIf("TRAVIS" in os.environ and os.environ["TRAVIS"] == "true", "Skipping this test on Travis CI.")
+    @unittest.skipIf("TRAVIS" in os.environ and os.environ["TRAVIS"] == "true", "Skipping this test on Travis CI.")
     def test_guardrail_functionality(self):  # pylint: disable=R0201
         """ Function to test the functional flow of guardrails"""
         ini_path = os.path.abspath(
@@ -124,7 +124,8 @@ class TestGuardrailFunctional(unittest.TestCase):
         for line in lines:
             if len(line) > stop:
                 line = line[0: start:] + line[stop + 1::]
-                line = line.replace(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)), "$$$")
+                line = line.replace(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)), "$$$")\
+                    .replace("\\", os.sep)
                 with open(file_name, "a+") as input_file:
                     input_file.write(line)
         file_name = os.path.join(ini_path, "guardrails", "guardrail_test.txt")
@@ -137,7 +138,7 @@ class TestGuardrailFunctional(unittest.TestCase):
         expec_file = os.path.join(ini_path, "test_guardrails.txt")
         with open(expec_file, 'r') as input_file:
             lines_expec = input_file.readlines()
-        self.assertEqual(lines_expec, lines_test)
+        self.assertEqual(str(lines_expec).replace("\\", os.sep), str(lines_test))
 
 
 if __name__ == '__main__':
