@@ -1,6 +1,7 @@
 """ This file does the  test of the "guardrails """
 import unittest
 import xml.etree.ElementTree as ETree
+from configparser import ConfigParser
 from unittest import mock
 from unittest.mock import patch, Mock, MagicMock
 from guardrails.guardrail_globals import GuardrailGlobals
@@ -9,6 +10,18 @@ from guardrails.guardrails import Guardails
 
 class TestGuardrails(unittest.TestCase):
     """ Class to test the logging and command line input feature """
+
+    def setUp(self):
+        """"Sets the directory for the test case"""
+        import os
+        ini_path = os.path.abspath(os.path.join
+                                   (os.path.dirname(__file__), os.pardir))
+        ini_path = os.path.join(ini_path, "test_resource", "guardrail.ini")
+        config = ConfigParser()
+        config.read(ini_path)
+        self.report_folder = (config.get('folder', 'report_folder'))
+        if not os.path.exists(self.report_folder):
+            os.makedirs(self.report_folder)
 
     def tearDown(self):
         """"Deletes the log files created."""
@@ -219,10 +232,13 @@ class TestGuardrails(unittest.TestCase):
     @mock.patch('subprocess.call')
     def test_guardrail_lint(self, mock_subproc_call):
         """Function to test guardrail_lint method"""
+        import os
         guardails_obj = self.get_guardrails_obj()
+        global_obj = GuardrailGlobals()
         mock_subproc_call.return_value = False
         guardails_obj.lint_ignore = self.get_file_name("test_resource", "pylint_ignore.txt")
         guardails_obj.generate_files_lint = MagicMock(return_value=" ")
+        global_obj.report_folder = os.getcwd()
         guardails_obj.guardrail_lint()
         self.assertTrue(mock_subproc_call.called)
         line = self.get_log_data(1)
@@ -264,13 +280,15 @@ class TestGuardrails(unittest.TestCase):
 
     def test_guardrail_deadcode(self):
         """Function to test guardrail_deadcode method"""
+        import os
         line_1, line_2 = self.get_test_guardrail_gate_status(gate="guardrail_deadcode")
         self.assertTrue("Guardrail , passed Dead code detection" in line_1)
         val = r'mypython -m vulture C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor ' \
               r'C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\test  --exclude C:\Projects\PythonRepo' \
               r'\python_sample\FunctionDefExtractor\test --min-confidence 100 >C:\Projects\PythonRepo' \
               r'\REPORT\deadcode.txt'
-        self.assertTrue(str(val) in line_2)
+        val = val.replace('\\', os.sep)
+        self.assertTrue(str(val) in line_2.replace("\\", os.sep))
 
     def test_guardrail_jscpd_fail(self):
         """Function to test guardrail_jscpd_fail method"""
@@ -301,14 +319,17 @@ class TestGuardrails(unittest.TestCase):
 
     def test_guardrail_deadcode_fail(self):
         """Function to test guardrail_deadcode_fail method"""
+        import os
         line_1, line_2 = self.get_test_guardrail_gate_status_fail(gate="guardrail_deadcode")
         self.assertTrue("Guardrail , failed Dead code detection" in line_1)
         val = r'mypython -m vulture C:\Projects\PythonRepo\python_sample\FunctionDefExtractor' \
               r'\functiondefextractor ' \
-              r'C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\test  --exclude C:\Projects\PythonRepo' \
+              r'C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\test  --exclude' \
+              r' C:\Projects\PythonRepo' \
               r'\python_sample\FunctionDefExtractor\test --min-confidence 100 >C:\Projects' \
               r'\PythonRepo\REPORT\deadcode.txt'
-        self.assertTrue(str(val) in line_2)
+        val = val.replace('\\', os.sep)
+        self.assertTrue(str(val) in line_2.replace('\\', os.sep))
 
     def test_parse_jscpd_report_json(self):
         """Function to test parse_jscpd_report_json method"""
