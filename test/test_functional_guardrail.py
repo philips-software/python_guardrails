@@ -137,6 +137,9 @@ class TestGuardrailFunctional(unittest.TestCase):
         expec_file = os.path.join(ini_path, "test_guardrails.txt")
         with open(expec_file, 'r') as input_file:
             lines_expec = input_file.readlines()
+        print(str(lines_expec).replace("\n", "").replace("\\", os.sep))
+        print("*****************************")
+        print(str(lines_test).replace("\n", "").replace("\\", os.sep))
         self.assertEqual(str(lines_expec).replace("\n", "").replace("\\", os.sep),
                          str(lines_test).replace("\n", "").replace("\\", os.sep))
 
