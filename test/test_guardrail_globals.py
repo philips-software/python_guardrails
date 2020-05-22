@@ -7,14 +7,6 @@ from guardrails.guardrail_globals import GuardrailGlobals
 class TestGuardrailGlobal(unittest.TestCase):
     """ Class to test the logging and command line input feature """
 
-    def test_mutable_lint_cmd_string(self):
-        """Function to test mutable_lint_cmd_string method"""
-        global_obj = GuardrailGlobals()
-        global_obj.lint_ignore = "abc"
-        global_obj.pylintrc = "xyz"
-        returnval = global_obj.mutable_lint_cmd()
-        self.assertEqual(returnval, "--ignore abc --rcfile xyz")
-
     def test_mutable_lint_cmd_empty(self):
         """Function to test mutable_lint_cmd_empty method"""
         global_obj = GuardrailGlobals()
@@ -23,92 +15,90 @@ class TestGuardrailGlobal(unittest.TestCase):
         returnval = global_obj.mutable_lint_cmd()
         self.assertEqual(returnval, "")
 
-    def test_generate_pylint_cmd_empty(self):
-        """Function to test generate_pylint_cmd_empty method"""
-        global_obj = GuardrailGlobals()
-        global_obj.linting = None
-        global_obj.mutable_lint_cmd = MagicMock(return_value="xyz")
-        returnval = global_obj.generate_pylint_cmd()
-        self.assertEqual(returnval, "")
-
     def test_generate_pylint_cmd_string(self):
         """Function to test generate_pylint_cmd_string method"""
+        import os
         global_obj = GuardrailGlobals()
         global_obj.linting = "abc"
         global_obj.python = "python"
+        ini_path = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
+        ignore_file_path = os.path.join(ini_path, "test_resource", "pylint_ignore.txt")
+        global_obj.lint_ignore = ignore_file_path
+        global_obj.all_folders = "xyz"
         global_obj.mutable_lint_cmd = MagicMock(return_value="xyz")
+        global_obj.generate_files_lint = MagicMock(return_value=" ")
         returnval = global_obj.generate_pylint_cmd()
-        self.assertEqual(returnval, "python -m pylint  xyz")
+        print(returnval)
+        self.assertEqual(returnval[0], "python -m pylint    --output-format=parseable xyz")
+
+    @staticmethod
+    def refactor_test_get_exclude_empty(gate, string=None):
+        """Function to test get_exclude_cc_empty method"""
+        global_obj = GuardrailGlobals()
+        retval = None
+        if gate == "cc":
+            global_obj.cyclo_exclude = string
+            retval = global_obj.get_exclude_cc()
+        if gate == "jscpd":
+            global_obj.programming_language = string
+            retval = global_obj.jscpd_format()
+        if gate == "jscpd_ignore":
+            global_obj.jscpd_ignore = string
+            retval = global_obj.jscpd_ignore_file()
+        if gate == "cov_rc":
+            global_obj.covrc = string
+            retval = global_obj.cov_rc_file()
+        if gate == "deadcode":
+            global_obj.dead_code_ignore = string
+            retval = global_obj.dead_code_exclude()
+        if gate == "mutation":
+            global_obj.pylintrc = string
+            retval = global_obj.mutable_lint_cmd()
+        return retval
 
     def test_get_exclude_cc_empty(self):
         """Function to test get_exclude_cc_empty method"""
-        global_obj = GuardrailGlobals()
-        global_obj.cyclo_exclude = None
-        returnval = global_obj.get_exclude_cc()
-        self.assertEqual(returnval, "")
-
-    def test_get_exclude_cc_string(self):
-        """Function to test get_exclude_cc_string method"""
-        global_obj = GuardrailGlobals()
-        global_obj.cyclo_exclude = "test, sample"
-        returnval = global_obj.get_exclude_cc()
-        self.assertEqual(returnval, "-x test/* -x  sample/*")
+        self.assertEqual(self.refactor_test_get_exclude_empty(gate="cc"), "")
 
     def test_get_exclude_jscpd_empty(self):
         """Function to test get_exclude_jscpd_empty method"""
-        global_obj = GuardrailGlobals()
-        global_obj.programming_language = None
-        returnval = global_obj.jscpd_format()
-        self.assertEqual(returnval, "")
-
-    def test_get_exclude_jscpd_string(self):
-        """Function to test get_exclude_jscpd_string method"""
-        global_obj = GuardrailGlobals()
-        global_obj.programming_language = "python"
-        returnval = global_obj.jscpd_format()
-        self.assertEqual(returnval, '--format "python"')
-
-    def test_jscpd_ignore_file_string(self):
-        """Function to test jscpd_ignore_file_string method"""
-        global_obj = GuardrailGlobals()
-        global_obj.jscpd_ignore = "python"
-        returnval = global_obj.jscpd_ignore_file()
-        self.assertEqual(returnval, '--ignore python')
+        self.assertEqual(self.refactor_test_get_exclude_empty(gate="jscpd"), "")
 
     def test_jscpd_ignore_file_empty(self):
         """Function to test jscpd_ignore_file_empty method"""
-        global_obj = GuardrailGlobals()
-        global_obj.jscpd_ignore = None
-        returnval = global_obj.jscpd_ignore_file()
-        self.assertEqual(returnval, '')
+        self.assertEqual(self.refactor_test_get_exclude_empty(gate="jscpd_ignore"), "")
 
     def test_cov_rc_file_empty(self):
         """Function to test cov_rc_file_empty method"""
-        global_obj = GuardrailGlobals()
-        global_obj.covrc = None
-        returnval = global_obj.cov_rc_file()
-        self.assertEqual(returnval, '')
-
-    def test_cov_rc_file_string(self):
-        """Function to test cov_rc_file_string method"""
-        global_obj = GuardrailGlobals()
-        global_obj.covrc = "None"
-        returnval = global_obj.cov_rc_file()
-        self.assertEqual(returnval, '--cov-config=None')
-
-    def test_dead_code_exclude_string(self):
-        """Function to test dead_code_exclude_string method"""
-        global_obj = GuardrailGlobals()
-        global_obj.dead_code_ignore = "None"
-        returnval = global_obj.dead_code_exclude()
-        self.assertEqual(returnval, '--exclude None')
+        self.assertEqual(self.refactor_test_get_exclude_empty(gate="cov_rc"), "")
 
     def test_dead_code_exclude_empty(self):
         """Function to test dead_code_exclude_empty method"""
-        global_obj = GuardrailGlobals()
-        global_obj.dead_code_ignore = None
-        returnval = global_obj.dead_code_exclude()
-        self.assertEqual(returnval, '')
+        self.assertEqual(self.refactor_test_get_exclude_empty(gate="deadcode"), "")
+
+    def test_get_exclude_cc_string(self):
+        """Function to test get_exclude_cc_string method"""
+        self.assertEqual(self.refactor_test_get_exclude_empty("cc", "test, sample"), "-x test/* -x  sample/*")
+
+    def test_get_exclude_jscpd_string(self):
+        """Function to test get_exclude_jscpd_string method"""
+        self.assertEqual(self.refactor_test_get_exclude_empty("jscpd", "python"), '--format "python"')
+
+    def test_jscpd_ignore_file_string(self):
+        """Function to test jscpd_ignore_file_string method"""
+        self.assertEqual(self.refactor_test_get_exclude_empty("jscpd_ignore", "python"), '--ignore python')
+
+    def test_cov_rc_file_string(self):
+        """Function to test cov_rc_file_string method"""
+        self.assertEqual(self.refactor_test_get_exclude_empty("cov_rc", "None"), '--cov-config=None')
+
+    def test_mutable_lint_cmd_string(self):
+        """Function to test mutable_lint_cmd_string method"""
+        self.assertEqual(self.refactor_test_get_exclude_empty("mutation", "xyz"), " --rcfile xyz")
+
+    def test_dead_code_exclude_string(self):
+        """Function to test dead_code_exclude_string method"""
+        self.assertEqual(self.refactor_test_get_exclude_empty("deadcode", "None"), '--exclude None')
 
     def test_init(self):
         """Function to test init method"""
@@ -168,7 +158,8 @@ class TestGuardrailGlobal(unittest.TestCase):
         self.assertEqual(global_obj.mutation, True)
         self.assertEqual(global_obj.deadcode, True)
         self.assertEqual(global_obj.cycloc, True)
-        self.assertEqual(global_obj.lint_ignore, r"C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\test")
+        self.assertEqual(global_obj.lint_ignore, r"C:\Projects\PythonRepo\python_sample\FunctionDefExtractor"
+                                                 r"\test_resource\pylint_ignore.txt")
         self.assertEqual(global_obj.programming_language, "python, java")
         self.assertEqual(global_obj.jscpd_ignore, r"C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\test")
         self.assertEqual(global_obj.dead_code_ignore, r"C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\test")

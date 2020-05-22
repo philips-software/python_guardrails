@@ -1,5 +1,7 @@
 """Koninklijke Philips N.V., 2019 - 2020. All rights reserved."""
 from __future__ import print_function
+
+import csv
 import sys
 import subprocess
 import shutil
@@ -7,8 +9,9 @@ import os
 import json
 import xml.etree.ElementTree as ETree
 import argparse
-from guardrail_globals import GuardrailGlobals #pylint: disable=E0401
-import guardrails_log as cl #pylint: disable=E0401
+
+from guardrail_globals import GuardrailGlobals  # pylint: disable=E0401
+import guardrails_log as cl  # pylint: disable=E0401
 
 LOG = cl.get_logger()
 
@@ -43,10 +46,10 @@ class Guardails(GuardrailGlobals):
           path_ini (string): The path to guardrail.ini file.
 
         """
-        super(Guardails, self).__init__()
+        super(Guardails, self).__init__() # python 2.7 does not support
         self.set_all(path_ini)
 
-    def call_subprocess(self, cmd):  #pylint: disable=R0201
+    def call_subprocess(self, cmd):  # pylint: disable=R0201
         """
         Function to call subprocess to issue system commands
 
@@ -189,7 +192,7 @@ class Guardails(GuardrailGlobals):
         try:
             labels = root.find('labels')
             for label in labels.iter('label'):
-                if str(label.text).upper() == str("CCN"):
+                if str(label.text).strip().upper() == str("CCN"):
                     val = count
                 else:
                     count += 1
@@ -279,9 +282,21 @@ class Guardails(GuardrailGlobals):
     def guardrail_lint(self):
         """ Function which run the linting check (Static analysis for the files"""
         LOG.info("Started Linting gate")  # pragma: no mutate
-        retval = self.call_subprocess("%s %s >%s" % (self.generate_pylint_cmd(), self.list_to_str_folders(),
-                                                     os.path.join(self.report_folder, "linting_Report.txt")))
-        self.validate_return(retval, "Linting", True)
+        open(os.path.join(self.report_folder, "linting_Report.txt"), "w+")
+        cmd_list = self.generate_pylint_cmd()
+        temp_lint_out = ""
+        retval = []
+        for cmd, _ in enumerate(cmd_list):
+            retval.append(self.call_subprocess("%s >%s" % (cmd_list[cmd],
+                                                           os.path.join(self.report_folder, "linting_Report.txt"))))
+            with open(os.path.join(self.report_folder, "linting_Report.txt"), 'r') as file:
+                temp_lint_out = temp_lint_out + file.read()
+                file.close()
+            # open(os.path.join(self.report_folder, "linting_Report.txt"), 'w').close()
+        with open(os.path.join(self.report_folder, "linting_Report.txt"), 'w') as file:
+            file.writelines(temp_lint_out)
+        for val in retval:
+            self.validate_return(val, "Linting", True)
         print("Passed linting gate")  # pragma: no mutate
         print('====================================')  # pragma: no mutate
 
@@ -289,9 +304,9 @@ class Guardails(GuardrailGlobals):
         """ Function which conduct copy past detection for the folders specified"""
         LOG.info("Started jscpd gate")  # pragma: no mutate
         retval = self.call_subprocess('jscpd --min-tokens %s  %s  --max-lines 100000 --max-size 100mb --reporters '
-                                      '"json" --mode "strict" %s -o %s %s' %
+                                      '"json,html" --mode "strict" %s -o %s %s' %
                                       (self.dup_token, self.jscpd_ignore_file(), self.jscpd_format(),
-                                       self.report_folder, self.list_to_str_folders()))
+                                       self.report_folder, self.jscpd_root))
         self.validate_return(retval, "Copy Paste Detection report generation ", False)
         self.parse_jscpd_report_json(self.allow_dup, os.path.join(self.report_folder, "jscpd-report.json"))
         print("Passed JSCPD gating")  # pragma: no mutate
@@ -314,6 +329,7 @@ class Guardails(GuardrailGlobals):
         """
         LOG.info("Started coverage gate")  # pragma: no mutate
         retval = self.call_subprocess('%s -m coverage report --fail-under=%s' % (self.python, self.percent_cov))
+        self.mov_cov_report()
         self.validate_return(retval, "Coverage threshold", True)
         print("Passed test coverage gating")  # pragma: no mutate
         print('====================================')  # pragma: no mutate
@@ -356,8 +372,11 @@ class Guardails(GuardrailGlobals):
                                                                       os.path.join(self.report_folder, 'CC.xml')))
         self.validate_return(retval, "Cyclomating complexity generation ", False)
         complexity = self.parse_cyclo_report_xml(os.path.join(self.report_folder, 'CC.xml'))
-        cyclo_complex = [cyclo_complex for cyclo_complex in complexity if int(complexity.get(cyclo_complex)) >
-                         self.cc_limit]
+        cyclo_complex = [cyclo_complex + "," + str(int(complexity.get(cyclo_complex))) for
+                         cyclo_complex in complexity if int(complexity.get(cyclo_complex)) > self.cc_limit]
+        cyclo_repport = open(os.path.join(self.report_folder, "cyclo_failure.csv"), "w")
+        csv.writer(cyclo_repport, delimiter=',').writerows([x.split(',') for x in cyclo_complex])
+        cyclo_repport.close()
         self.validate_return(len(cyclo_complex), "Cyclomatic complexity", True)
         print("Passed Cyclomatic complexity gating")  # pragma: no mutate
         print('====================================')  # pragma: no mutate
@@ -365,9 +384,9 @@ class Guardails(GuardrailGlobals):
     def guardrail_deadcode(self):
         """ Function which is used to conduct the dead code analysis and gate it """
         LOG.info("Started deadcode gate")  # pragma: no mutate
-        retval = self.call_subprocess('%s -m vulture %s  %s >%s' %
-                                      (self.python, self.list_to_str_folders(), self.dead_code_exclude(), os.path.join(
-                                          self.report_folder, 'deadcode.txt')))
+        retval = self.call_subprocess('%s -m vulture %s  %s --min-confidence %s >%s' %
+                                      (self.python, self.list_to_str_folders(), self.dead_code_exclude(),
+                                       self.min_deadcode_confidence, os.path.join(self.report_folder, 'deadcode.txt')))
         self.validate_return(retval, "Dead code detection ", True)
         print("Passed Dead code gating")  # pragma: no mutate
         print('====================================')  # pragma: no mutate
@@ -398,7 +417,6 @@ class Guardails(GuardrailGlobals):
         if self.cov:
             self.guardrail_test()
             self.guardrail_coverage()
-            self.mov_cov_report()
         if self.mutation: self.guardrail_mutation()
         if self.deadcode: self.guardrail_deadcode()
         if self.cycloc: self.guardrail_cyclomatic_complexity()

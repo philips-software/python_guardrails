@@ -10,10 +10,7 @@ def create_parser(args):
     mutmut_parser = argparse.ArgumentParser(description='Mutmut Parser')
 
     # Add the arguments
-    mutmut_parser.add_argument('--mut',
-                            metavar='--m',
-                            type=int,
-                            help='mutation benchmark')
+    mutmut_parser.add_argument('--mut', metavar='--m', type=int, help='mutation benchmark')
     return mutmut_parser.parse_args(args)
 
 
@@ -45,7 +42,6 @@ def parse_mutmut_report_xml(allow_fail):
 
 
 if __name__ == '__main__':
-    """ Entry function for mutmut parser"""
     # Execute the parse_args() method
     ARGS = create_parser(sys.argv[1:])
     # Process the cosine with inputs provided

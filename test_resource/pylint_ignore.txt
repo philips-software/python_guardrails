@@ -1,0 +1,2 @@
+C:\Projects\python_guardrails\test_resource\cyclo_gate.py
+C:\Projects\python_guardrails\test_resource\jscpd_parser.py
