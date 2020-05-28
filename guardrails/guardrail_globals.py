@@ -155,8 +155,8 @@ class GuardrailGlobals:
     @staticmethod
     def list_to_str(str_list):
         """ Function to convert ignored pylint files list to string """
-        str1 = ' '.join(str(e) for e in str_list)
-        return str1
+        list_in_string = ' '.join(str(e) for e in str_list)
+        return list_in_string
 
     def generate_files_lint(self):
         """ Function to get ignored pylint files """
