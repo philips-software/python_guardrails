@@ -3,8 +3,7 @@ from __future__ import print_function
 import sys
 from configparser import ConfigParser
 import os
-import glob
-# import glob2 # for python 2.7
+import glob  # glob2 for python 2.7
 import itertools
 
 

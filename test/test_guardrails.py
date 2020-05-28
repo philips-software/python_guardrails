@@ -255,8 +255,8 @@ class TestGuardrails(unittest.TestCase):
         """Function to test guardrail_jscpd method"""
         line_1, line_2 = self.get_test_guardrail_gate_status(gate="guardrail_jscpd")
         self.assertTrue("Guardrail task, passed Copy Paste Detection report generation" in line_1)
-        val = r'command for sub process:jscpd --min-tokens 20  --ignore C:\Projects\PythonRepo\python_sample' \
-              r'\FunctionDefExtractor\test  --max-lines 100000 --max-size 100mb --reporters "json,html"' \
+        val = r'command for sub process:jscpd --min-tokens 20  --ignore jscpd_ignore_input' \
+              r'  --max-lines 100000 --max-size 100mb --reporters "json,html"' \
               r' --mode "strict" --format "python, java" -o'
         self.assertTrue(str(val) in line_2)
 
@@ -264,10 +264,9 @@ class TestGuardrails(unittest.TestCase):
         """Function to test guardrail_test method"""
         line_1, line_2 = self.get_test_guardrail_gate_status(gate="guardrail_test")
         self.assertTrue("Guardrail task, passed Test execution and coverage generation" in line_1)
-        val = r'mypython -m pytest C:\Projects\PythonRepo\python_sample\FunctionDefExtractor' \
-              r' --cov-config=C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\.coveragerc ' \
-              r'--cov-report "html" --cov=C:\Projects\PythonRepo\python_sample' \
-              r'\FunctionDefExtractor\functiondefextractor'
+        val = r'mypython -m pytest pytest_root_input' \
+              r' --cov-config=coverage_rc_file_input ' \
+              r'--cov-report "html" --cov=source_folder_input'
         self.assertTrue(str(val) in line_2)
 
     def test_guardrail_coverage(self):
@@ -283,10 +282,9 @@ class TestGuardrails(unittest.TestCase):
         import os
         line_1, line_2 = self.get_test_guardrail_gate_status(gate="guardrail_deadcode")
         self.assertTrue("Guardrail , passed Dead code detection" in line_1)
-        val = r'mypython -m vulture C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor ' \
-              r'C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\test  --exclude C:\Projects\PythonRepo' \
-              r'\python_sample\FunctionDefExtractor\test --min-confidence 100 >C:\Projects\PythonRepo' \
-              r'\REPORT\deadcode.txt'
+        val = r'mypython -m vulture source_folder_input ' \
+              r'test_folder_input  --exclude dead_code_ignore_input' \
+              r' --min-confidence 100 >report_folder_input\deadcode.txt'
         val = val.replace('\\', os.sep)
         self.assertTrue(str(val) in line_2.replace("\\", os.sep))
 
@@ -294,8 +292,8 @@ class TestGuardrails(unittest.TestCase):
         """Function to test guardrail_jscpd_fail method"""
         line_1, line_2 = self.get_test_guardrail_gate_status_fail(gate="guardrail_jscpd")
         self.assertTrue("Guardrail task, failed Copy Paste Detection report generation" in line_1)
-        val = r'command for sub process:jscpd --min-tokens 20  --ignore C:\Projects\PythonRepo\python_sample' \
-              r'\FunctionDefExtractor\test  --max-lines 100000 --max-size 100mb --reporters "json,html" --mode ' \
+        val = r'command for sub process:jscpd --min-tokens 20  --ignore jscpd_ignore_input' \
+              r'  --max-lines 100000 --max-size 100mb --reporters "json,html" --mode ' \
               r'"strict" --format "python, java" -o'
         self.assertTrue(str(val) in line_2)
 
@@ -303,10 +301,9 @@ class TestGuardrails(unittest.TestCase):
         """Function to test guardrail_test_fail method"""
         line_1, line_2 = self.get_test_guardrail_gate_status_fail(gate="guardrail_test")
         self.assertTrue("Guardrail task, failed Test execution and coverage generation" in line_1)
-        val = r'mypython -m pytest C:\Projects\PythonRepo\python_sample\FunctionDefExtractor ' \
-              r'--cov-config=C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\.coveragerc ' \
-              r'--cov-report "html" --cov=C:\Projects\PythonRepo\python_sample' \
-              r'\FunctionDefExtractor\functiondefextractor'
+        val = r'mypython -m pytest pytest_root_input ' \
+              r'--cov-config=coverage_rc_file_input ' \
+              r'--cov-report "html" --cov=source_folder_input'
         self.assertTrue(str(val) in line_2)
 
     def test_guardrail_coverage_fail(self):
@@ -322,12 +319,9 @@ class TestGuardrails(unittest.TestCase):
         import os
         line_1, line_2 = self.get_test_guardrail_gate_status_fail(gate="guardrail_deadcode")
         self.assertTrue("Guardrail , failed Dead code detection" in line_1)
-        val = r'mypython -m vulture C:\Projects\PythonRepo\python_sample\FunctionDefExtractor' \
-              r'\functiondefextractor ' \
-              r'C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\test  --exclude' \
-              r' C:\Projects\PythonRepo' \
-              r'\python_sample\FunctionDefExtractor\test --min-confidence 100 >C:\Projects' \
-              r'\PythonRepo\REPORT\deadcode.txt'
+        val = r'mypython -m vulture source_folder_input ' \
+              r'test_folder_input  --exclude dead_code_ignore_input' \
+              r' --min-confidence 100 >report_folder_input\deadcode.txt'
         val = val.replace('\\', os.sep)
         self.assertTrue(str(val) in line_2.replace('\\', os.sep))
 
