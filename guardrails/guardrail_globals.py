@@ -3,6 +3,13 @@ from __future__ import print_function
 import sys
 from configparser import ConfigParser
 import os
+import itertools
+
+if (2, 7, 0) <= sys.version_info < (3, 5, 7):
+    import glob2  # for python 2.7
+elif sys.version_info >= (3, 5, 7):
+    import glob
+
 
 
 class GuardrailGlobals:
@@ -11,14 +18,17 @@ class GuardrailGlobals:
     def __init__(self):
         """  default constructor for the class"""
         self.src_folder = None
+        self.lint_buffer = 20
         self.test_folder = None
         self.pytest = None
         self.report_folder = None
+        self.jscpd_root = None
         self.cyclo_exclude = None
         self.python = None
         self.pylintrc = None
         self.covrc = None
         self.dup_token = 50
+        self.min_deadcode_confidence = 60
         self.percent_cov = None
         self.allow_dup = None
         self.cc_limit = None
@@ -35,7 +45,7 @@ class GuardrailGlobals:
         self.jscpd_ignore = None
         self.dead_code_ignore = None
 
-    def set_all(self, path_ini):
+    def set_all(self, path_ini, buffer):
         """
         Function to set the global variables from thr guardrail.ini
 
@@ -53,6 +63,7 @@ class GuardrailGlobals:
         self.test_folder = (config.get('folder', 'test_folder'))
         self.pytest = (config.get('folder', 'pytest_root'))
         self.report_folder = (config.get('folder', 'report_folder'))
+        self.jscpd_root = (config.get('folder', 'jscpd_root'))
         # python
         self.python = (config.get('python', 'python'))
         self.pylintrc = (config.get('python', 'pylint_rc_file'))
@@ -64,6 +75,7 @@ class GuardrailGlobals:
         self.allow_dup = (config.getint('gates', 'jscpd_allowed_duplication'))
         self.cc_limit = (config.getint('gates', 'cyclomatic_complexity_allowed'))
         self.allow_mutants = (config.getint('gates', 'allowed_mutants_percentage'))
+        self.min_deadcode_confidence = (config.getint('gates', 'min_deadcode_confidence'))
         # options
         self.linting = (config.getboolean('options', 'linting'))
         self.cpd = (config.getboolean('options', 'cpd'))
@@ -80,24 +92,26 @@ class GuardrailGlobals:
         self.jscpd_ignore = (config.get('ignore', 'jscpd_ignore'))
         # post processing
         self.all_folders = self.src_folder + " " + self.test_folder
+        self.lint_buffer = buffer
 
     def mutable_lint_cmd(self):
         """ Function to parse and form optional linting command (ignore files and rc file) """
 
         cmd = ""
-        if self.lint_ignore:
-            cmd = "--ignore %s" % self.lint_ignore
         if self.pylintrc:
             cmd = cmd + " " + "--rcfile %s" % self.pylintrc
         return cmd
 
     def generate_pylint_cmd(self):
         """ Function to set optional linting command (ignore files and rc file) """
-        if self.linting:
-            cmd = "%s -m pylint  %s" % (self.python, self.mutable_lint_cmd())
-        else:
-            cmd = ""
-        return cmd
+        cmd_list = []
+        sub_list = [self.generate_files_lint()[i:i + self.lint_buffer]
+                    for i in range(0, len(self.generate_files_lint()), self.lint_buffer)]
+        for i, _ in enumerate(sub_list):
+            cmd_list.append(
+                "%s -m pylint  %s --output-format=parseable %s" % (self.python, self.list_to_str(sub_list[i]),
+                                                                   self.mutable_lint_cmd()))
+        return cmd_list
 
     def get_exclude_cc(self):
         """ Function which is used to construct the exclude string for cyclomatic complexity of lizard"""
@@ -135,3 +149,38 @@ class GuardrailGlobals:
         if self.dead_code_ignore:
             cmd = "--exclude %s" % self.dead_code_ignore
         return cmd
+
+    def read_file_to_list(self):
+        """ Function to read ignored pylint files to list """
+        ret_val = None
+        if self.lint_ignore:
+            with open(r"%s" % self.lint_ignore) as file:
+                content = file.readlines()
+            # Remove whitespace characters like `\n` at the end of each line
+            ret_val = [x.strip() for x in content]
+        return ret_val
+
+    @staticmethod
+    def list_to_str(str_list):
+        """ Function to convert ignored pylint files list to string """
+        list_in_string = ' '.join(str(e) for e in str_list)
+        return list_in_string
+
+    def generate_files_lint(self):
+        """ Function to get ignored pylint files """
+        ignore_list = self.read_file_to_list()
+        res = None
+        if self.all_folders.split():
+            lint_input_list = []
+            for item in self.all_folders.split():
+                if (2, 7, 0) <= sys.version_info < (3, 5, 7):
+                    src_lint_file = glob2.glob(r'%s%s**%s*.py' % (item, os.sep, os.sep))  # for 2.7
+                elif sys.version_info >= (3, 5, 7):
+                    src_lint_file = glob.iglob(r'%s%s**%s*.py' % (item, os.sep, os.sep), recursive=True)
+                src_input_list = [item for item in src_lint_file]
+                lint_input_list.append(src_input_list)
+            input_list = list(set(list(itertools.chain.from_iterable(lint_input_list))))
+            res = input_list
+            if ignore_list is not None:
+                res = [item for item in input_list if item not in ignore_list]
+        return res

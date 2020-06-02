@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/philips-software/python_guardrails.svg?branch=master)](https://travis-ci.com/philips-software/python_guardrails)
+![Python application](https://github.com/philips-software/python_guardrails/workflows/Python%20application/badge.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![codecov](https://codecov.io/gh/philips-software/python_guardrails/branch/master/graph/badge.svg)](https://codecov.io/gh/philips-software/python_guardrails)
 
@@ -21,6 +21,7 @@ Dependencies
 ```
 Python 3.7.3
 NodeJS 10
+JSCPD 3.2.1
 ```
 
 [packages]
@@ -41,6 +42,8 @@ codecov
 pytest-cov
 
 pylint
+
+glob2
 ```
 
 
@@ -51,12 +54,13 @@ Install, Usage & Configuration
 3. update the `guardrail.ini` file, content of which is listed below
 ``` 
 [folder]
-# Comma seperated source folders if more than one directory
+# space seperated source folders if more than one directory
 source_folder = C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\function_def_extractor 
-# Comma seperated test folders if more than one directory
+# space seperated test folders if more than one directory
 test_folder = C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\test
 pytest_root = C:\Projects\PythonRepo\python_sample\FunctionDefExtractor
 report_folder = C:\Projects\PythonRepo\REPORT
+jscpd_root = C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor
 
 [python]
 python = python
@@ -79,12 +83,14 @@ coverage_percentage = 95
 allowed_mutants_percentage = 20
 # cyclomatic complexity allowed value
 cyclomatic_complexity_allowed = 10
+# minimum deadcode confidence
+min_deadcode_confidence = 100
 
 [ignore]
 # Comma seperated folders if more than one directory or leave empty after =
 cyclomatic_complexity_exclude =  C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\test_resource, C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\test
-# Comma seperated source folders if more than one directory or leave empty after =
-pylint_ignore = C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\test
+# If there are ignores list them with absolute path with file name in a text file(line by line) or leave empty after =
+pylint_ignore = C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\test_resource\pylint_ignore.txt
 # Comma seperated source folders if more than one directory or leave empty after =
 jscpd_ignore = C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\test
 # Comma seperated source folders if more than one directory or leave empty after =

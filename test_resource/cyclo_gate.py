@@ -11,10 +11,7 @@ def create_parser(args):
     cyclo_parser = argparse.ArgumentParser(description='cyclomatic complexity gate Parser')
 
     # Add the arguments
-    cyclo_parser.add_argument('--cyclo',
-                            metavar='--c',
-                            type=int,
-                            help='cyclo benchmark')
+    cyclo_parser.add_argument('--cyclo', metavar='--c', type=int, help='cyclo benchmark')
     return cyclo_parser.parse_args(args)
 
 
@@ -100,6 +97,7 @@ class CycloGate():
         except KeyError:
             print("tags required are not found in cc.xml report file path")  # pragma: no mutate
             sys.exit(1)
+
     @staticmethod
     def validate_return(val, message):
         """
@@ -124,10 +122,8 @@ class CycloGate():
 
 
 if __name__ == '__main__':
-    """ Entry function for cyclomatic complexity parser"""
-    # Execute the parse_args() method
     ARGS = create_parser(sys.argv[1:])
-    cycloGateObj = CycloGate()
-    complexity = cycloGateObj.parse_cyclo_report_xml('CC.xml')
-    cyclo_complex = [cyclo_complex for cyclo_complex in complexity if int(complexity.get(cyclo_complex)) > ARGS.cyclo]
-    cycloGateObj.validate_return(len(cyclo_complex), "Cyclomatic complexity")
+    CYCLOGATEOBJ = CycloGate()
+    COMPLEXITY = CYCLOGATEOBJ.parse_cyclo_report_xml('CC.xml')
+    CYCLOCOMPLEX = [CYCLOCOMPLEX for CYCLOCOMPLEX in COMPLEXITY if int(COMPLEXITY.get(CYCLOCOMPLEX)) > ARGS.cyclo]
+    CYCLOGATEOBJ.validate_return(len(CYCLOCOMPLEX), "Cyclomatic complexity")
