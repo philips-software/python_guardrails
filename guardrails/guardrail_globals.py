@@ -3,12 +3,13 @@ from __future__ import print_function
 import sys
 from configparser import ConfigParser
 import os
+import itertools
 
 if (2, 7, 0) <= sys.version_info < (3, 5, 7):
     import glob2  # for python 2.7
 elif sys.version_info >= (3, 5, 7):
     import glob
-import itertools
+
 
 
 class GuardrailGlobals:

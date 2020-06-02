@@ -434,4 +434,3 @@ if __name__ == '__main__':
     ARGS = create_parser(sys.argv[1:])
     GUARD_OBJ = Guardails(ARGS.path, ARGS.buffer)
     GUARD_OBJ.orchestrate_guardrails()
-
