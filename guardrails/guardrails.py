@@ -27,6 +27,13 @@ def create_parser(args):
                              metavar='--p',
                              type=str,
                              help='the Input file path for guardrail.ini')
+    # Add the arguments
+    func_parser.add_argument('--buffer',
+                             metavar='--b',
+                             nargs='?',
+                             type=int,
+                             default=20,
+                             help='the buffer for linting command defaulted to 20')
     return func_parser.parse_args(args)
 
 
@@ -38,7 +45,7 @@ class Guardails(GuardrailGlobals):
        path_ini (string): The path to guardrail.ini file.
     """
 
-    def __init__(self, path_ini):
+    def __init__(self, path_ini, buffer):
         """
         The constructor for ComplexNumber class.
 
@@ -46,8 +53,9 @@ class Guardails(GuardrailGlobals):
           path_ini (string): The path to guardrail.ini file.
 
         """
-        super(Guardails, self).__init__() # python 2.7 does not support
-        self.set_all(path_ini)
+        if sys.version_info >= (3, 5, 7):
+            super(Guardails, self).__init__() # python 2.7 does not support
+        self.set_all(path_ini, buffer)
 
     def call_subprocess(self, cmd):  # pylint: disable=R0201
         """
@@ -424,5 +432,6 @@ class Guardails(GuardrailGlobals):
 
 if __name__ == '__main__':
     ARGS = create_parser(sys.argv[1:])
-    GUARD_OBJ = Guardails(ARGS.path)
+    GUARD_OBJ = Guardails(ARGS.path, ARGS.buffer)
     GUARD_OBJ.orchestrate_guardrails()
+

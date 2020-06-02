@@ -129,6 +129,7 @@ class TestGuardrailGlobal(unittest.TestCase):
         self.assertEqual(global_obj.programming_language, None)
         self.assertEqual(global_obj.jscpd_ignore, None)
         self.assertEqual(global_obj.dead_code_ignore, None)
+        self.assertEqual(global_obj.lint_buffer, 20)
 
     def test_set_all(self):
         """Function to test set_all method"""
@@ -136,7 +137,7 @@ class TestGuardrailGlobal(unittest.TestCase):
         ini_path = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
         ini_path = os.path.join(ini_path, "test_resource", "guardrail.ini")
         global_obj = GuardrailGlobals()
-        global_obj.set_all(ini_path)
+        global_obj.set_all(ini_path, 30)
         self.assertEqual(global_obj.src_folder, "source_folder_input")
         self.assertEqual(global_obj.jscpd_root, "jscpd_root_input")
         self.assertEqual(global_obj.test_folder, "test_folder_input")
@@ -163,6 +164,7 @@ class TestGuardrailGlobal(unittest.TestCase):
         self.assertEqual(global_obj.programming_language, "python, java")
         self.assertEqual(global_obj.jscpd_ignore, "jscpd_ignore_input")
         self.assertEqual(global_obj.dead_code_ignore, "dead_code_ignore_input")
+        self.assertEqual(global_obj.lint_buffer, 30)
 
 
 if __name__ == '__main__':

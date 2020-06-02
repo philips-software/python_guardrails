@@ -3,7 +3,11 @@ from __future__ import print_function
 import sys
 from configparser import ConfigParser
 import os
-import glob  # glob2 for python 2.7
+
+if (2, 7, 0) <= sys.version_info < (3, 5, 7):
+    import glob2  # for python 2.7
+elif sys.version_info >= (3, 5, 7):
+    import glob
 import itertools
 
 
@@ -13,6 +17,7 @@ class GuardrailGlobals:
     def __init__(self):
         """  default constructor for the class"""
         self.src_folder = None
+        self.lint_buffer = 20
         self.test_folder = None
         self.pytest = None
         self.report_folder = None
@@ -39,7 +44,7 @@ class GuardrailGlobals:
         self.jscpd_ignore = None
         self.dead_code_ignore = None
 
-    def set_all(self, path_ini):
+    def set_all(self, path_ini, buffer):
         """
         Function to set the global variables from thr guardrail.ini
 
@@ -86,6 +91,7 @@ class GuardrailGlobals:
         self.jscpd_ignore = (config.get('ignore', 'jscpd_ignore'))
         # post processing
         self.all_folders = self.src_folder + " " + self.test_folder
+        self.lint_buffer = buffer
 
     def mutable_lint_cmd(self):
         """ Function to parse and form optional linting command (ignore files and rc file) """
@@ -98,7 +104,8 @@ class GuardrailGlobals:
     def generate_pylint_cmd(self):
         """ Function to set optional linting command (ignore files and rc file) """
         cmd_list = []
-        sub_list = [self.generate_files_lint()[i:i + 20] for i in range(0, len(self.generate_files_lint()), 20)]
+        sub_list = [self.generate_files_lint()[i:i + self.lint_buffer]
+                    for i in range(0, len(self.generate_files_lint()), self.lint_buffer)]
         for i, _ in enumerate(sub_list):
             cmd_list.append(
                 "%s -m pylint  %s --output-format=parseable %s" % (self.python, self.list_to_str(sub_list[i]),
@@ -165,8 +172,10 @@ class GuardrailGlobals:
         if self.all_folders.split():
             lint_input_list = []
             for item in self.all_folders.split():
-                src_lint_file = glob.iglob(r'%s%s**%s*.py' % (item, os.sep, os.sep), recursive=True)
-                # src_lint_file = glob2.glob(r'%s%s**%s*.py' %(item, os.sep, os.sep)) #for 2.7
+                if (2, 7, 0) <= sys.version_info < (3, 5, 7):
+                    src_lint_file = glob2.glob(r'%s%s**%s*.py' % (item, os.sep, os.sep))  # for 2.7
+                elif sys.version_info >= (3, 5, 7):
+                    src_lint_file = glob.iglob(r'%s%s**%s*.py' % (item, os.sep, os.sep), recursive=True)
                 src_input_list = [item for item in src_lint_file]
                 lint_input_list.append(src_input_list)
             input_list = list(set(list(itertools.chain.from_iterable(lint_input_list))))

@@ -97,7 +97,7 @@ class TestGuardrails(unittest.TestCase):
         ini_path = os.path.abspath(os.path.join
                                    (os.path.dirname(__file__), os.pardir))
         ini_path = os.path.join(ini_path, "test_resource", "guardrail.ini")
-        return Guardails(ini_path)
+        return Guardails(ini_path, 20)
 
     def get_log_data(self, line):
         """ function to get the line requested from log data"""
