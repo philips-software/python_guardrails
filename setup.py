@@ -26,7 +26,7 @@ with open("README.md", "r", encoding="utf8") as fh:
         long_description = long_description.replace("[License.md](License.md)", str(get_license()))
 setuptools.setup(
     name="guardrails",
-    version="1.0.1",
+    version="2.beta.1",
     author="Brijesh",
     author_email="brijesh.krishnank@philips.com",
     description="guardrails",
@@ -40,5 +40,5 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     install_requires=required,
-    python_requires='>=3.7',
+    python_requires='>=3.8',
 )

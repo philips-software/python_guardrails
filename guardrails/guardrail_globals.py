@@ -91,7 +91,7 @@ class GuardrailGlobals:
                                                            'pylint_rc_file'))
             # coverage
         if not ((config.get('coverage', 'coverage_rc_file')).strip()):
-            self.pylintrc = (config.get('coverage', 'coverage_rc_file'))
+            self.covrc = (config.get('coverage', 'coverage_rc_file'))
         else:
             self.covrc = self.__get_abs_path(path_ini,
                                              config.get('coverage',
