@@ -3,12 +3,6 @@ from __future__ import print_function
 import sys
 from configparser import ConfigParser
 import os
-import itertools
-
-if (2, 7, 0) <= sys.version_info < (3, 5, 7):
-    import glob2  # for python 2.7
-elif sys.version_info >= (3, 5, 7):
-    import glob
 
 
 class GuardrailGlobals:
@@ -69,12 +63,18 @@ class GuardrailGlobals:
         self.src_folder = self.__get_abs_path(path_ini,
                                               config.get('folder',
                                                          'source_folder'))
-        self.test_folder = self.__get_abs_path(path_ini,
-                                               config.get('folder',
-                                                          'test_folder'))
-        self.pytest = self.__get_abs_path(path_ini,
-                                          config.get('folder',
-                                                     'pytest_root'))
+        if not ((config.get('python', 'pylint_rc_file')).strip()):
+            self.test_folder = (config.get('folder', 'test_folder'))
+        else:
+            self.test_folder = self.__get_abs_path(path_ini,
+                                                   config.get('folder',
+                                                              'test_folder'))
+        if not ((config.get('python', 'pylint_rc_file')).strip()):
+            self.pytest = (config.get('folder', 'pytest_root'))
+        else:
+            self.pytest = self.__get_abs_path(path_ini,
+                                              config.get('folder',
+                                                         'pytest_root'))
         self.report_folder = self.__get_abs_path(path_ini,
                                                  config.get('folder',
                                                             'report_folder'))
@@ -144,15 +144,10 @@ class GuardrailGlobals:
     def generate_pylint_cmd(self):
         """ Function to set optional linting command
          (ignore files and rc file) """
-        cmd_list = []
-        sub_list = [self.generate_files_lint()[i:i + self.lint_buffer]
-                    for i in
-                    range(0, len(self.generate_files_lint()), self.lint_buffer)]
-        for i, _ in enumerate(sub_list):
-            cmd_list.append(
-                "%s -m pylint  %s --output-format=parseable %s" % (
-                    self.python, self.list_to_str(sub_list[i]),
-                    self.mutable_lint_cmd()))
+
+        cmd_list = "%s -m pylint  %s --output-format=parseable %s" % (
+                    self.python, self.list_to_str(list(set(
+                        self.all_folders.split(',')))), self.mutable_lint_cmd())
         return cmd_list
 
     def get_exclude_cc(self):
@@ -202,22 +197,3 @@ class GuardrailGlobals:
         list_in_string = ' '.join(str(e) for e in str_list)
         return list_in_string
 
-    def generate_files_lint(self):
-        """ Function to get ignored pylint files """
-        res = None
-        if self.all_folders.split():
-            lint_input_list = []
-            for item in self.all_folders.split():
-                if (2, 7, 0) <= sys.version_info < (3, 5, 7):
-                    src_lint_file = glob2.glob(
-                        r'%s%s**%s*.py' % (item, os.sep, os.sep))  # for 2.7
-                elif sys.version_info >= (3, 5, 7):
-                    src_lint_file = glob.iglob(
-                        r'%s%s**%s*.py' % (item, os.sep, os.sep),
-                        recursive=True)
-                src_input_list = [item for item in src_lint_file]
-                lint_input_list.append(src_input_list)
-            input_list = list(
-                set(list(itertools.chain.from_iterable(lint_input_list))))
-            res = input_list
-        return res

@@ -56,7 +56,7 @@ class Guardails(GuardrailGlobals):
 
         """
         if sys.version_info >= (3, 5, 7):
-            super(Guardails, self).__init__() # python 2.7 does not support
+            super(Guardails, self).__init__()  # python 2.7 does not support
         self.set_all(path_ini, buffer)
 
     def call_subprocess(self, cmd):  # pylint: disable=R0201
@@ -317,23 +317,12 @@ class Guardails(GuardrailGlobals):
         LOG.info("Started Linting gate")  # pragma: no mutate
         open(os.path.join(self.report_folder, "linting_Report.txt"), "w")
         cmd_list = self.generate_pylint_cmd()
-        temp_lint_out = ""
-        retval = []
-        for cmd, _ in enumerate(cmd_list):
-            retval.append(self.call_subprocess("%s >%s" %
-                                               (cmd_list[cmd],
-                                                os.path.join(
-                                                    self.report_folder,
-                                                    "linting_Report.txt"))))
-            with open(os.path.join(self.report_folder,
-                                   "linting_Report.txt"), 'r') as file:
-                temp_lint_out = temp_lint_out + file.read()
-                file.close()
-        with open(os.path.join(self.report_folder,
-                               "linting_Report.txt"), 'w') as file:
-            file.writelines(temp_lint_out)
-        for val in retval:
-            self.validate_return(val, "Linting", True)
+        retval = (self.call_subprocess("%s >%s" %
+                                       (cmd_list,
+                                        os.path.join(
+                                            self.report_folder,
+                                            "linting_Report.txt"))))
+        self.validate_return(retval, "Linting", True)
         print("Passed linting gate")  # pragma: no mutate
         print('====================================')  # pragma: no mutate
 
@@ -491,9 +480,10 @@ class Guardails(GuardrailGlobals):
         self.check_report_dir()
         if self.linting: self.guardrail_lint()
         if self.cpd: self.guardrail_jscpd()
+        if self.deadcode: self.guardrail_deadcode()
+        if self.cycloc: self.guardrail_cyclomatic_complexity()
         if self.cov:
             self.guardrail_test()
             self.guardrail_coverage()
         if self.mutation: self.guardrail_mutation()
-        if self.deadcode: self.guardrail_deadcode()
-        if self.cycloc: self.guardrail_cyclomatic_complexity()
+
