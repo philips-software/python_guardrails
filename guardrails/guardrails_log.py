@@ -6,9 +6,10 @@ import logging
 def get_logger():
     """Create and configure logger"""
 
-    logging.basicConfig(filename=os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir,
-                                                              "guardrails",
-                                                              "guardrails.log")),
+    logging.basicConfig(filename=os.path.abspath(os.path.join
+                                                 (os.path.dirname(__file__),
+                                                  os.pardir, "guardrails",
+                                                  "guardrails.log")),
                         format='%(asctime)s %(message)s', filemode='a')
     # Creating log Object
     __logger = logging.getLogger()

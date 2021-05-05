@@ -5,11 +5,10 @@
 Guardrails for python projects
 =============================
 
-What is the project intented to solve?
+What is the project intended to solve?
 -------------------------------------
 Project will help to consolidate clean coding practices at the developers desk by a single call which consolidates
- (linting, copy paste
- detection, Dead code, Test coverage, Cyclomatic complexity, Mutation testing)
+ (linting, copy paste detection, Dead code, Test coverage, Cyclomatic complexity, Mutation testing)
 
 Technology stack
 ---------------
@@ -19,7 +18,7 @@ Technology stack
 Dependencies
 ------------
 ```
-Python 3.7.3
+Python 3.8
 NodeJS 10
 JSCPD 3.2.1
 ```
@@ -54,64 +53,78 @@ Install, Usage & Configuration
 3. update the `guardrail.ini` file, content of which is listed below
 ``` 
 [folder]
-# space seperated source folders if more than one directory
-source_folder = C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\function_def_extractor 
-# space seperated test folders if more than one directory
-test_folder = C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\test
-pytest_root = C:\Projects\PythonRepo\python_sample\FunctionDefExtractor
-report_folder = C:\Projects\PythonRepo\REPORT
-jscpd_root = C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\functiondefextractor
+# Fields under folder config are mandatory, if not provided, 
+# will be considering the path of this ini file
+
+# Comma seperated source folders if more than one directory
+source_folder = .\EagleVision\eaglevision
+# Comma seperated test folders if more than one directory
+test_folder = .\EagleVision\test
+pytest_root = .\EagleVision\test
+report_folder = ..\opensource\python_guardrails\guardrails_report
+jscpd_root = .\EagleVision
 
 [python]
 python = python
 # path to the .pylintrc file if specific linting or leave empty after =
-pylint_rc_file = C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\.pylintrc
+pylint_rc_file = .\EagleVision\.pylintrc
 
 [coverage]
 # path to the .coveragerc file if specific cverage config or leave empty after =
-coverage_rc_file = C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\.coveragerc
+coverage_rc_file =
 
 [gates]
 # gate values are absolute integers
 # duplicate to ken count
 jscpd_duplicate_token = 20
 # Jscpd allowed % duplication
-jscpd_allowed_duplication = 5
+jscpd_allowed_duplication = 7
 # coverage gating %
-coverage_percentage = 95
+coverage_percentage = 85
 # Allowed mutats %
 allowed_mutants_percentage = 20
 # cyclomatic complexity allowed value
 cyclomatic_complexity_allowed = 10
 # minimum deadcode confidence
-min_deadcode_confidence = 100
+min_deadcode_confidence = 50
 
 [ignore]
-# Comma seperated folders if more than one directory or leave empty after =
-cyclomatic_complexity_exclude =  C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\test_resource, C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\test
-# If there are ignores list them with absolute path with file name in a text file(line by line) or leave empty after =
-pylint_ignore = C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\test_resource\pylint_ignore.txt
-# Comma seperated source folders if more than one directory or leave empty after =
-jscpd_ignore = C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\test
-# Comma seperated source folders if more than one directory or leave empty after =
-dead_code_ignore = C:\Projects\PythonRepo\python_sample\FunctionDefExtractor\test
+# pylint ignore to be added in the pylintrc file
+# Add files or directories matching the regex patterns to the blacklist. The
+# regex matches against base names, not paths.
+# Ignore all .py files under the 3rdparty subdirectory.
+
+# ignore-patterns=**/3rdparty/**/*.py
+
+# Comma seperated folders if more than one directory or leave empty after = for example cyclomatic_complexity_exclude = "*guardrails.py", "*guardrail_globals.py"
+# more details @https://pypi.org/project/lizard/1.17.7/
+cyclomatic_complexity_exclude =
+# Comma seperated source folders if more than one directory or leave empty after = for example jscpd_ignore = "**/*.min.js,**/*.map"
+# More details @ https://www.npmjs.com/package/jscpd#ignored-blocks
+jscpd_ignore = 
+# Comma seperated source folders if more than one directory or leave empty after = for example If you want to ignore a whole file or directory, use the --exclude parameter (e.g., --exclude *settings.py,docs/
+# more details @ https://pypi.org/project/vulture/#description
+dead_code_ignore =
+
+# whitelist deadcode (relative path to whitelist.py) [.\path\whitelist.py] or leave it empty after = 
+dead_code_whitelist = 
 
 [others]
-# Comma seperated language if more than one
-programming_language = python, java
+# Comma seperated language if more than one, for CPD reporting
+programming_language = python
 
 [options]
 # option can be either true or false
-linting=true
-cpd=true
-coverage=true
-mutation=true
-deadcode=true
-cyclomatic_complexity=true
+linting=false
+cpd=false
+coverage=false
+mutation=false
+deadcode=false
+cyclomatic_complexity=false
 ```
 4. To call from commandline
 ```
-python -m guardrails.guardrails --p path\to\guardrail.ini #ini file created for respective project
+python -m guardrails --p path\to\guardrail.ini #ini file created for respective project
 ```
 Sample execution report
 ----------------------

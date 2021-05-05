@@ -5,4 +5,4 @@ The tool by default takes 20 files at a time for linting. This is to limit the i
 too many inout arguments or the argument input buffer overflows, you are free to change the number of input files passed to the pylint by changing 
 commandline option
 
-'''python -m guardrails.guardrails --p path\to\guardrail.ini --b #number (defaulted to 20)''' 
+'''python -m guardrails --p path\to\guardrail.ini --b #number (defaulted to 20)''' 
