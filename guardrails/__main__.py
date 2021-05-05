@@ -6,6 +6,6 @@ from guardrails.guardrails import create_parser
 
 if __name__ == '__main__':
     ARGS = create_parser(sys.argv[1:])
-    GUARD_OBJ = Guardails(ARGS.path, ARGS.buffer)
+    GUARD_OBJ = Guardails(ARGS.path)
     GUARD_OBJ.orchestrate_guardrails()
 

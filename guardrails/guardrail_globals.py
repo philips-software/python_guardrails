@@ -11,7 +11,6 @@ class GuardrailGlobals:
     def __init__(self):
         """  default constructor for the class"""
         self.src_folder = None
-        self.lint_buffer = 20
         self.test_folder = None
         self.pytest = None
         self.report_folder = None
@@ -45,14 +44,12 @@ class GuardrailGlobals:
             os.path.join(os.path.dirname(os.path.abspath(path_ini)),
                          input_path))
 
-    def set_all(self, path_ini, buffer):
+    def set_all(self, path_ini):
         """
         Function to set the global variables from thr guardrail.ini
 
         Parameters:
           path_ini (string): The path to guardrail.ini file.
-          buffer (int): Bugger size/number of path for the pylint argument
-          split.
         """
         config = ConfigParser()
         if not os.path.exists(path_ini):
@@ -130,7 +127,6 @@ class GuardrailGlobals:
                 path_ini, (config.get("ignore", "dead_code_whitelist")))
         # post processing
         self.all_folders = self.src_folder + " " + self.test_folder
-        self.lint_buffer = buffer
 
     def mutable_lint_cmd(self):
         """ Function to parse and form optional linting command
