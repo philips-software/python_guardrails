@@ -45,7 +45,7 @@ jobs:
         python3 -m vulture guardrails
     - name: Tests & Coverage
       run: |
-        pytest test --cov-config=.coveragerc --cov=guardrails
+        pytest test -p no:logging --cov-config=.coveragerc --cov=guardrails
         coverage report --fail-under=90 #Coverage should be above 90%
         codecov
     - name: Mutation Tests
