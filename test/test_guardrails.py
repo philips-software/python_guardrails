@@ -6,8 +6,9 @@ from unittest import mock
 from unittest.mock import patch, Mock, MagicMock
 from guardrails.guardrail_globals import GuardrailGlobals
 from guardrails.guardrails import Guardails
-
-
+import pathlib
+import os
+parentPPath = str(pathlib.Path(__file__).parent.resolve().parent.resolve()) + os.sep + "test_resource" + os.sep
 class TestGuardrails(unittest.TestCase):
     """ Class to test the logging and command line input feature """
 
@@ -97,7 +98,7 @@ class TestGuardrails(unittest.TestCase):
         ini_path = os.path.abspath(os.path.join
                                    (os.path.dirname(__file__), os.pardir))
         ini_path = os.path.join(ini_path, "test_resource", "guardrail.ini")
-        return Guardails(ini_path, 20)
+        return Guardails(ini_path)
 
     def get_log_data(self, line):
         """ function to get the line requested from log data"""
@@ -264,9 +265,10 @@ class TestGuardrails(unittest.TestCase):
         """Function to test guardrail_test method"""
         line_1, line_2 = self.get_test_guardrail_gate_status(gate="guardrail_test")
         self.assertTrue("Guardrail task, passed Test execution and coverage generation" in line_1)
-        val = r'mypython -m pytest pytest_root_input' \
-              r' --cov-config=coverage_rc_file_input ' \
-              r'--cov-report "html" --cov=source_folder_input'
+        val = r'mypython -m pytest %spytest_root_input' \
+              r' --cov-config=%scoverage_rc_file_input ' \
+              r'--cov-report "html" --cov=%ssource_folder_input'%(
+            parentPPath,parentPPath,parentPPath)
         self.assertTrue(str(val) in line_2)
 
     def test_guardrail_coverage(self):
@@ -282,9 +284,10 @@ class TestGuardrails(unittest.TestCase):
         import os
         line_1, line_2 = self.get_test_guardrail_gate_status(gate="guardrail_deadcode")
         self.assertTrue("Guardrail , passed Dead code detection" in line_1)
-        val = r'mypython -m vulture source_folder_input ' \
-              r'test_folder_input  --exclude dead_code_ignore_input' \
-              r' --min-confidence 100 >report_folder_input\deadcode.txt'
+        val = r'mypython -m vulture %ssource_folder_input ' \
+              r'%stest_folder_input  --exclude dead_code_ignore_input' \
+              r'  --min-confidence 100 >%sreport_folder_input\deadcode.txt'%(
+            parentPPath,parentPPath,parentPPath)
         val = val.replace('\\', os.sep)
         self.assertTrue(str(val) in line_2.replace("\\", os.sep))
 
@@ -301,9 +304,10 @@ class TestGuardrails(unittest.TestCase):
         """Function to test guardrail_test_fail method"""
         line_1, line_2 = self.get_test_guardrail_gate_status_fail(gate="guardrail_test")
         self.assertTrue("Guardrail task, failed Test execution and coverage generation" in line_1)
-        val = r'mypython -m pytest pytest_root_input ' \
-              r'--cov-config=coverage_rc_file_input ' \
-              r'--cov-report "html" --cov=source_folder_input'
+        val = r'mypython -m pytest %spytest_root_input ' \
+              r'--cov-config=%scoverage_rc_file_input ' \
+              r'--cov-report "html" --cov=%ssource_folder_input'%(
+            parentPPath,parentPPath,parentPPath)
         self.assertTrue(str(val) in line_2)
 
     def test_guardrail_coverage_fail(self):
@@ -319,9 +323,10 @@ class TestGuardrails(unittest.TestCase):
         import os
         line_1, line_2 = self.get_test_guardrail_gate_status_fail(gate="guardrail_deadcode")
         self.assertTrue("Guardrail , failed Dead code detection" in line_1)
-        val = r'mypython -m vulture source_folder_input ' \
-              r'test_folder_input  --exclude dead_code_ignore_input' \
-              r' --min-confidence 100 >report_folder_input\deadcode.txt'
+        val = r'mypython -m vulture %ssource_folder_input ' \
+              r'%stest_folder_input  --exclude dead_code_ignore_input' \
+              r'  --min-confidence 100 >%sreport_folder_input\deadcode.txt'%(
+            parentPPath,parentPPath,parentPPath)
         val = val.replace('\\', os.sep)
         self.assertTrue(str(val) in line_2.replace('\\', os.sep))
 
@@ -451,7 +456,7 @@ class TestGuardrails(unittest.TestCase):
             assert exit_mock
 
     @mock.patch('subprocess.call', autospec=True)
-    def test_guardrail_cyclomatic_complexity(self, mock_subproc_call):
+    def test_guardrail_cyclomatic_complexity(self, mock_subproc_call): ######
         """Function to test guardrail_cyclomatic_complexity method"""
         guardails_obj = self.get_guardrails_obj()
         guardails_obj.parse_cyclo_report_xml = Mock()

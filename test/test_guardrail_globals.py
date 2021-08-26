@@ -26,10 +26,8 @@ class TestGuardrailGlobal(unittest.TestCase):
         global_obj.lint_ignore = ignore_file_path
         global_obj.all_folders = "random_string"
         global_obj.mutable_lint_cmd = MagicMock(return_value="random_string")
-        global_obj.generate_files_lint = MagicMock(return_value=" ")
         returnval = global_obj.generate_pylint_cmd()
-        print(returnval)
-        self.assertEqual(returnval[0], "python -m pylint    --output-format=parseable random_string")
+        self.assertEqual(returnval, "python -m pylint  random_string --output-format=parseable random_string")
 
     @staticmethod
     def refactor_test_get_exclude_empty(gate, string=None):
@@ -76,9 +74,9 @@ class TestGuardrailGlobal(unittest.TestCase):
         """Function to test dead_code_exclude_empty method"""
         self.assertEqual(self.refactor_test_get_exclude_empty(gate="deadcode"), "")
 
-    def test_get_exclude_cc_string(self):
+    def test_get_exclude_cc_string(self): #
         """Function to test get_exclude_cc_string method"""
-        self.assertEqual(self.refactor_test_get_exclude_empty("cc", "test, sample"), "-x test/* -x  sample/*")
+        self.assertEqual(self.refactor_test_get_exclude_empty("cc", "test, sample"), "-x test -x  sample ")
 
     def test_get_exclude_jscpd_string(self):
         """Function to test get_exclude_jscpd_string method"""
@@ -112,7 +110,7 @@ class TestGuardrailGlobal(unittest.TestCase):
         self.assertEqual(global_obj.python, None)
         self.assertEqual(global_obj.pylintrc, None)
         self.assertEqual(global_obj.covrc, None)
-        self.assertEqual(global_obj.dup_token, 50)
+        self.assertEqual(global_obj.dup_token, 100)
         self.assertEqual(global_obj.percent_cov, None)
         self.assertEqual(global_obj.allow_dup, None)
         self.assertEqual(global_obj.cc_limit, None)
@@ -125,46 +123,47 @@ class TestGuardrailGlobal(unittest.TestCase):
         self.assertEqual(global_obj.mutation, True)
         self.assertEqual(global_obj.deadcode, True)
         self.assertEqual(global_obj.cycloc, True)
-        self.assertEqual(global_obj.lint_ignore, None)
         self.assertEqual(global_obj.programming_language, None)
         self.assertEqual(global_obj.jscpd_ignore, None)
         self.assertEqual(global_obj.dead_code_ignore, None)
-        self.assertEqual(global_obj.lint_buffer, 20)
 
     def test_set_all(self):
         """Function to test set_all method"""
         import os
+        import pathlib
         ini_path = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
         ini_path = os.path.join(ini_path, "test_resource", "guardrail.ini")
         global_obj = GuardrailGlobals()
-        global_obj.set_all(ini_path, 30)
-        self.assertEqual(global_obj.src_folder, "source_folder_input")
-        self.assertEqual(global_obj.jscpd_root, "jscpd_root_input")
-        self.assertEqual(global_obj.test_folder, "test_folder_input")
-        self.assertEqual(global_obj.pytest, "pytest_root_input")
-        self.assertEqual(global_obj.report_folder, "report_folder_input")
+        global_obj.set_all(ini_path)
+        parentPPath = str(pathlib.Path(__file__).parent.resolve().parent.resolve())+os.sep+"test_resource"+os.sep
+        self.assertEqual(global_obj.src_folder, parentPPath+"source_folder_input")
+        self.assertEqual(global_obj.jscpd_root, parentPPath+"jscpd_root_input")
+        self.assertEqual(global_obj.test_folder, parentPPath+"test_folder_input")
+        self.assertEqual(global_obj.pytest, parentPPath+"pytest_root_input")
+        self.assertEqual(global_obj.report_folder, parentPPath+"report_folder_input")
         self.assertEqual(global_obj.cyclo_exclude, "cyclomatic_complexity_exclude_input")
         self.assertEqual(global_obj.python, r"mypython")
-        self.assertEqual(global_obj.pylintrc, "pylint_rc_file_input")
-        self.assertEqual(global_obj.covrc, "coverage_rc_file_input")
+        self.assertEqual(global_obj.pylintrc, parentPPath+"pylint_rc_file_input")
+        self.assertEqual(global_obj.covrc, parentPPath+"coverage_rc_file_input")
         self.assertEqual(global_obj.dup_token, 20)
         self.assertEqual(global_obj.percent_cov, 85)
         self.assertEqual(global_obj.allow_dup, 5)
         self.assertEqual(global_obj.cc_limit, 10)
         self.assertEqual(global_obj.min_deadcode_confidence, 100)
         self.assertEqual(global_obj.allow_mutants, 30)
-        self.assertEqual(global_obj.all_folders, "source_folder_input test_folder_input")
+        self.assertEqual(global_obj.all_folders.split(" ")[0], os.path.join(
+            parentPPath,"source_folder_input"))
+        self.assertEqual(global_obj.all_folders.split(" ")[1], os.path.join(
+            parentPPath, "test_folder_input"))
         self.assertEqual(global_obj.linting, True)
         self.assertEqual(global_obj.cpd, True)
         self.assertEqual(global_obj.cov, True)
         self.assertEqual(global_obj.mutation, True)
         self.assertEqual(global_obj.deadcode, True)
         self.assertEqual(global_obj.cycloc, True)
-        self.assertEqual(global_obj.lint_ignore, "pylint_ignore_input")
         self.assertEqual(global_obj.programming_language, "python, java")
         self.assertEqual(global_obj.jscpd_ignore, "jscpd_ignore_input")
         self.assertEqual(global_obj.dead_code_ignore, "dead_code_ignore_input")
-        self.assertEqual(global_obj.lint_buffer, 30)
 
 
 if __name__ == '__main__':
