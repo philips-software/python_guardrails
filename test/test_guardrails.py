@@ -8,7 +8,10 @@ from guardrails.guardrail_globals import GuardrailGlobals
 from guardrails.guardrails import Guardails
 import pathlib
 import os
+import pytest
 parentPPath = str(pathlib.Path(__file__).parent.resolve().parent.resolve()) + os.sep + "test_resource" + os.sep
+
+# @pytest.fixture(scope="class")
 class TestGuardrails(unittest.TestCase):
     """ Class to test the logging and command line input feature """
 
@@ -20,7 +23,8 @@ class TestGuardrails(unittest.TestCase):
         ini_path = os.path.join(ini_path, "test_resource", "guardrail.ini")
         config = ConfigParser()
         config.read(ini_path)
-        self.report_folder = (config.get('folder', 'report_folder'))
+        self.report_folder = parentPPath + (config.get('folder',
+                                                      'report_folder'))
         if not os.path.exists(self.report_folder):
             os.makedirs(self.report_folder)
 
@@ -239,7 +243,8 @@ class TestGuardrails(unittest.TestCase):
         mock_subproc_call.return_value = False
         guardails_obj.lint_ignore = self.get_file_name("test_resource", "pylint_ignore.txt")
         guardails_obj.generate_files_lint = MagicMock(return_value=" ")
-        global_obj.report_folder = os.getcwd()
+        global_obj.report_folder = os.path.join(os.path.dirname(os.getcwd()),
+                                                "test_resource")
         guardails_obj.guardrail_lint()
         self.assertTrue(mock_subproc_call.called)
         line = self.get_log_data(1)
@@ -313,6 +318,7 @@ class TestGuardrails(unittest.TestCase):
     def test_guardrail_coverage_fail(self):
         """Function to test guardrail_coverage_fail method"""
         line_1, line_2 = self.get_test_guardrail_gate_status_fail(gate="guardrail_coverage")
+        print("***********************")
         print(line_2)
         self.assertTrue("Guardrail , failed Coverage threshold" in line_1)
         val = r'mypython -m coverage report --fail-under=85'
