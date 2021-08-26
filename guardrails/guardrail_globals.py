@@ -60,14 +60,14 @@ class GuardrailGlobals:
         self.src_folder = self.__get_abs_path(path_ini,
                                               config.get('folder',
                                                          'source_folder'))
-        if not ((config.get('python', 'pylint_rc_file')).strip()):
-            self.test_folder = (config.get('folder', 'test_folder'))
+        if not config.get('python', 'pylint_rc_file').strip():
+            self.test_folder = config.get('folder', 'test_folder')
         else:
             self.test_folder = self.__get_abs_path(path_ini,
                                                    config.get('folder',
                                                               'test_folder'))
-        if not ((config.get('python', 'pylint_rc_file')).strip()):
-            self.pytest = (config.get('folder', 'pytest_root'))
+        if not config.get('python', 'pylint_rc_file').strip():
+            self.pytest = config.get('folder', 'pytest_root')
         else:
             self.pytest = self.__get_abs_path(path_ini,
                                               config.get('folder',
@@ -80,15 +80,15 @@ class GuardrailGlobals:
                                                          'jscpd_root'))
         # python
         self.python = (config.get('python', 'python'))
-        if not ((config.get('python', 'pylint_rc_file')).strip()):
-            self.pylintrc = (config.get('python', 'pylint_rc_file'))
+        if not config.get('python', 'pylint_rc_file').strip():
+            self.pylintrc = config.get('python', 'pylint_rc_file')
         else:
             self.pylintrc = self.__get_abs_path(path_ini,
                                                 config.get('python',
                                                            'pylint_rc_file'))
             # coverage
-        if not ((config.get('coverage', 'coverage_rc_file')).strip()):
-            self.covrc = (config.get('coverage', 'coverage_rc_file'))
+        if not config.get('coverage', 'coverage_rc_file').strip():
+            self.covrc = config.get('coverage', 'coverage_rc_file')
         else:
             self.covrc = self.__get_abs_path(path_ini,
                                              config.get('coverage',
@@ -119,9 +119,9 @@ class GuardrailGlobals:
         self.dead_code_ignore = (config.get('ignore', 'dead_code_ignore'))
         self.jscpd_ignore = (config.get('ignore', 'jscpd_ignore'))
 
-        if not ((config.get("ignore", "dead_code_whitelist")).strip()):
-            self.dead_code_whitelist = (config.get("ignore",
-                                                   "dead_code_whitelist"))
+        if not config.get("ignore", "dead_code_whitelist").strip():
+            self.dead_code_whitelist = config.get("ignore",
+                                                  "dead_code_whitelist")
         else:
             self.dead_code_whitelist = self.__get_abs_path(
                 path_ini, (config.get("ignore", "dead_code_whitelist")))
@@ -142,8 +142,8 @@ class GuardrailGlobals:
          (ignore files and rc file) """
 
         cmd_list = "%s -m pylint  %s --output-format=parseable %s" % (
-                    self.python, self.list_to_str(list(set(
-                        self.all_folders.split(',')))), self.mutable_lint_cmd())
+            self.python, self.list_to_str(list(set(
+                self.all_folders.split(',')))), self.mutable_lint_cmd())
         return cmd_list
 
     def get_exclude_cc(self):
@@ -192,4 +192,3 @@ class GuardrailGlobals:
         """ Function to convert ignored pylint files list to string """
         list_in_string = ' '.join(str(e) for e in str_list)
         return list_in_string
-

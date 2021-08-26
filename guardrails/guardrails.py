@@ -422,7 +422,7 @@ class Guardails(GuardrailGlobals):
         cyclo_complex = [cyclo_complex + "," + str(int(
             complexity.get(cyclo_complex))) for
                          cyclo_complex in complexity if int(
-                complexity.get(cyclo_complex)) > self.cc_limit]
+                             complexity.get(cyclo_complex)) > self.cc_limit]
         cyclo_repport = open(os.path.join(self.report_folder,
                                           "cyclo_failure.csv"), "w")
         csv.writer(cyclo_repport, delimiter=',').writerows(
@@ -478,4 +478,3 @@ class Guardails(GuardrailGlobals):
             self.guardrail_test()
             self.guardrail_coverage()
         if self.mutation: self.guardrail_mutation()
-
