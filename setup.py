@@ -26,7 +26,7 @@ with open("README.md", "r", encoding="utf8") as fh:
         long_description = long_description.replace("[License.md](License.md)", str(get_license()))
 setuptools.setup(
     name="guardrails",
-    version="2.beta.3",
+    version="2.0.0",
     author="Brijesh",
     author_email="brijesh.krishnank@philips.com",
     description="guardrails",
