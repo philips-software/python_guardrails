@@ -1,5 +1,5 @@
 mutmut==1.5.1
-codecov==2.0.15
+codecov==2.0.16
 lizard==1.17.3
 vulture==1.3
 pylint==2.4.4
